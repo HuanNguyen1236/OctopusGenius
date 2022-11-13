@@ -1,15 +1,14 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:octopusgenius/create_account3.dart';
+import 'package:octopusgenius/setting_privacy2.dart';
 
-class create_account2 extends StatefulWidget {
+class setting_privacy1 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return create_account2state();
+    return setting_privacy1state();
   }
 }
 
-class create_account2state extends State {
+class setting_privacy1state extends State {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,24 +23,24 @@ class create_account2state extends State {
         body: Center(
           child: Stack(
             children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 150),
-                child: Text(
-                  'Create account',
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(255, 40, 3, 150),
-                  ),
-                ),
-              ),
               SingleChildScrollView(
                 child: Container(
                   padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.3,
+                    top: MediaQuery.of(context).size.height * 0.2,
                   ),
                   child: Column(
                     children: [
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 30, right: 170),
+                        child: Text(
+                          'Setting privacy',
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 40, 3, 150),
+                          ),
+                        ),
+                      ),
                       Container(
                         width: 350,
                         child: Column(
@@ -50,10 +49,28 @@ class create_account2state extends State {
                               decoration: InputDecoration(
                                 fillColor: Colors.white,
                                 filled: true,
+                                hintText: 'Email',
+                                prefixIcon: Icon(
+                                  Icons.email_outlined,
+                                  color: Color.fromARGB(255, 40, 3, 105),
+                                ),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 5,
+                            ),
+                            TextField(
+                              obscureText: true,
+                              decoration: InputDecoration(
+                                fillColor: Colors.white,
+                                filled: true,
                                 hintText: 'Username',
                                 prefixIcon: Icon(
-                                  Icons.email,
-                                  color: Color.fromARGB(255, 40, 3, 105),
+                                  Icons.person_outlined,
+                                  color: Color.fromARGB(255, 40, 3, 150),
                                 ),
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
@@ -70,7 +87,7 @@ class create_account2state extends State {
                                 filled: true,
                                 hintText: 'Password',
                                 prefixIcon: Icon(
-                                  Icons.phone,
+                                  Icons.key_outlined,
                                   color: Color.fromARGB(255, 40, 3, 150),
                                 ),
                                 border: OutlineInputBorder(
@@ -86,9 +103,9 @@ class create_account2state extends State {
                               decoration: InputDecoration(
                                 fillColor: Colors.white,
                                 filled: true,
-                                hintText: 'Confirmation Password',
+                                hintText: 'Confirmation password',
                                 prefixIcon: Icon(
-                                  Icons.confirmation_num_rounded,
+                                  Icons.key,
                                   color: Color.fromARGB(255, 40, 3, 150),
                                 ),
                                 border: OutlineInputBorder(
@@ -110,7 +127,8 @@ class create_account2state extends State {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => create_account3()),
+                                  builder: (context) => setting_privacy2(),
+                                ),
                               );
                             },
                             child: Text(

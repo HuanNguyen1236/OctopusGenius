@@ -1,18 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:octopusgenius/event.dart';
-import 'package:octopusgenius/level.dart';
+import 'package:octopusgenius/field.dart';
+import 'package:octopusgenius/home.dart';
 import 'package:octopusgenius/profile1.dart';
 import 'package:octopusgenius/profile2.dart';
 
-class home extends StatefulWidget {
+class level extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return homestate();
+    return levelstate();
   }
 }
 
-class homestate extends State {
+class levelstate extends State {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -99,38 +99,67 @@ class homestate extends State {
               ),
             ),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Opacity(
                   opacity: 0.98,
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 100),
-                    child: ClipRRect(
-                      child: Container(
-                        width: 310,
-                        height: 100,
-                        color: Color.fromARGB(255, 70, 20, 156),
-                        child: MaterialButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => Event(),
-                              ),
-                            );
-                          },
-                          child: Text(
-                            'Event',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
+                  child: ClipRRect(
+                    child: Container(
+                      width: 200,
+                      height: 80,
+                      color: Color.fromARGB(255, 42, 2, 111),
+                      child: MaterialButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => field(),
                             ),
+                          );
+                        },
+                        child: Text(
+                          'Difficult',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(100),
+                    ),
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(100),
+                    ),
+                  ),
+                ),
+                Opacity(
+                  opacity: 0.98,
+                  child: ClipRRect(
+                    child: Container(
+                      width: 300,
+                      height: 100,
+                      color: Color.fromARGB(255, 70, 20, 156),
+                      child: MaterialButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => field(),
+                            ),
+                          );
+                        },
+                        child: Text(
+                          'Medium',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ),
+                    ),
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(100),
                     ),
                   ),
                 ),
@@ -140,18 +169,18 @@ class homestate extends State {
                     child: Container(
                       width: double.infinity,
                       height: 170,
-                      color: Color.fromARGB(255, 40, 3, 105),
+                      color: Color.fromARGB(255, 82, 25, 180),
                       child: MaterialButton(
                         onPressed: () {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => level(),
+                              builder: (context) => field(),
                             ),
                           );
                         },
                         child: Text(
-                          'Play',
+                          'Easy',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 46,

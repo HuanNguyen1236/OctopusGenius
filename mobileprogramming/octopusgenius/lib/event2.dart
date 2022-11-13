@@ -1,18 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:octopusgenius/event.dart';
+import 'package:octopusgenius/game.dart';
+import 'package:octopusgenius/home.dart';
 import 'package:octopusgenius/level.dart';
 import 'package:octopusgenius/profile1.dart';
 import 'package:octopusgenius/profile2.dart';
 
-class home extends StatefulWidget {
+class Event2 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return homestate();
+    return Event2state();
   }
 }
 
-class homestate extends State {
+class Event2state extends State {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -102,66 +104,87 @@ class homestate extends State {
               children: [
                 Opacity(
                   opacity: 0.98,
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 100),
-                    child: ClipRRect(
-                      child: Container(
-                        width: 310,
-                        height: 100,
-                        color: Color.fromARGB(255, 70, 20, 156),
-                        child: MaterialButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => Event(),
-                              ),
-                            );
-                          },
-                          child: Text(
-                            'Event',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(100),
-                      ),
-                    ),
-                  ),
-                ),
-                Opacity(
-                  opacity: 0.98,
                   child: ClipRRect(
                     child: Container(
                       width: double.infinity,
-                      height: 170,
-                      color: Color.fromARGB(255, 40, 3, 105),
-                      child: MaterialButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => level(),
+                      height: 350,
+                      color: Colors.yellow,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            height: 70,
+                            width: double.infinity,
+                            color: Color.fromARGB(255, 40, 3, 105),
+                            child: Center(
+                              child: Text(
+                                'Name Event',
+                                style: TextStyle(
+                                  fontSize: 30,
+                                  color: Colors.yellow,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
                             ),
-                          );
-                        },
-                        child: Text(
-                          'Play',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 46,
-                            fontWeight: FontWeight.bold,
                           ),
-                        ),
+                          Container(
+                            child: Center(
+                              child: Padding(
+                                padding: const EdgeInsets.all(15),
+                                child: Text(
+                                  'Content Event',
+                                  style: TextStyle(
+                                    fontSize: 23,
+                                    color: Color.fromARGB(255, 40, 3, 105),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            child: Padding(
+                              padding: EdgeInsets.only(bottom: 50),
+                              child: Container(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    ClipRRect(
+                                      child: Container(
+                                        width: 200,
+                                        height: 70,
+                                        color: Colors.white,
+                                        child: MaterialButton(
+                                          onPressed: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) => game(),
+                                              ),
+                                            );
+                                          },
+                                          child: Text(
+                                            'Play Event',
+                                            style: TextStyle(
+                                              color: Color.fromARGB(
+                                                  255, 40, 3, 105),
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      borderRadius: BorderRadius.circular(50),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                     borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(100),
+                      topLeft: Radius.circular(50),
                     ),
                   ),
                 ),

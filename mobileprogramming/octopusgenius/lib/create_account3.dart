@@ -1,7 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:octopusgenius/home.dart';
 
 class create_account3 extends StatefulWidget {
-  const create_account3({super.key});
   @override
   State<StatefulWidget> createState() {
     return create_account3state();
@@ -11,80 +12,93 @@ class create_account3 extends StatefulWidget {
 class create_account3state extends State {
   @override
   Widget build(BuildContext context) {
-    Widget register3 = Container(
-      padding: EdgeInsets.all(40),
-      child: Column(
-        children: [
-          Container(
-            width: 350,
-            padding: const EdgeInsets.all(1),
-            child: const TextField(
-              decoration: InputDecoration(
-                prefixIcon: Icon(
-                  Icons.lock,
-                  color: Color.fromARGB(255, 40, 3, 105),
-                ),
-                labelText: 'Confirmation code',
-              ),
-            ),
-          ),
-        ],
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage('images/account.png'),
+          fit: BoxFit.cover,
+        ),
       ),
-    );
-
-    Widget button = Container(
-      padding: EdgeInsets.only(top: 10),
-      child: Column(
-        children: [
-          Container(
-            width: 300,
-            height: 60,
-          ),
-          Container(
-            padding: EdgeInsets.only(top: 10),
-            width: 300,
-            height: 65,
-            child: MaterialButton(
-              splashColor: Color.fromARGB(255, 40, 3, 105),
-              onPressed: () {},
-              color: Colors.white,
-              child: Text(
-                "Finish",
-                style: TextStyle(
-                  color: Color.fromARGB(255, 40, 3, 105),
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Center(
+          child: Stack(
+            children: [
+              SingleChildScrollView(
+                child: Container(
+                  padding: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.2,
+                  ),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 30, right: 170),
+                        child: Text(
+                          'Create account',
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 40, 3, 150),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        width: 350,
+                        child: Column(
+                          children: [
+                            TextField(
+                              obscureText: true,
+                              decoration: InputDecoration(
+                                fillColor: Colors.white,
+                                filled: true,
+                                hintText: 'Confirmation Code',
+                                prefixIcon: Icon(
+                                  Icons.confirmation_num_rounded,
+                                  color: Color.fromARGB(255, 40, 3, 150),
+                                ),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 30),
+                        child: Container(
+                          width: 300,
+                          height: 50,
+                          child: MaterialButton(
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => home(),
+                                ),
+                              );
+                            },
+                            child: Text(
+                              'Finish',
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 40, 3, 150),
+                                fontSize: 20,
+                              ),
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                30.0,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(
-                  30.0,
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-    return MaterialApp(
-      debugShowCheckedModeBanner: true,
-      home: Scaffold(
-        body: Container(
-          width: double.infinity,
-          height: double.infinity,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("images/account.png"),
-            ),
-          ),
-          child: Padding(
-            padding: EdgeInsets.only(top: 350),
-            child: Column(
-              children: [
-                register3,
-                button,
-              ],
-            ),
+            ],
           ),
         ),
       ),
