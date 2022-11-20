@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "608857692143",
+    "project_id": "octopus-genius",
+    "storage_bucket": "octopus-genius.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:608857692143:android:bba7c44de01ca0d9cbc81a",
+        "android_client_info": {
+          "package_name": "com.example.octopusgenius"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "608857692143-sg8jji8hg91ra8io2gcvb7i868j7sjae.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-LICYfa72w4LXTSR0XftUdgHZmJ3hI1M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "608857692143-sg8jji8hg91ra8io2gcvb7i868j7sjae.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
