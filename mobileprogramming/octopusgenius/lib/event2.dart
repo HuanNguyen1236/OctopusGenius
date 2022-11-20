@@ -66,8 +66,25 @@ class Event2state extends State {
           children: [
             Container(
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
+                  Row(
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        icon: Icon(
+                          Icons.arrow_back,
+                          color: Color.fromARGB(255, 199, 199, 199),
+                          size: 30,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    width: 30,
+                  ),
                   Row(
                     children: [
                       Image(

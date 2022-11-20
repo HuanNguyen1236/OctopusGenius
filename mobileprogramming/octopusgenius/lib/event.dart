@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:octopusgenius/event.dart';
 import 'package:octopusgenius/event2.dart';
+import 'package:octopusgenius/home.dart';
 import 'package:octopusgenius/level.dart';
 import 'package:octopusgenius/profile1.dart';
 import 'package:octopusgenius/profile2.dart';
@@ -65,8 +66,25 @@ class eventstate extends State {
           children: [
             Container(
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
+                  Row(
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        icon: Icon(
+                          Icons.arrow_back,
+                          color: Color.fromARGB(255, 199, 199, 199),
+                          size: 30,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    width: 30,
+                  ),
                   Row(
                     children: [
                       Image(
@@ -288,7 +306,14 @@ class eventstate extends State {
                 size: 40,
               ),
               backgroundColor: Color.fromARGB(255, 40, 3, 105),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => home(),
+                  ),
+                );
+              },
             ),
           ),
         ),

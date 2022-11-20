@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:octopusgenius/home.dart';
 import 'package:octopusgenius/level.dart';
+import 'package:octopusgenius/profile2.dart';
 import 'package:octopusgenius/setting_privacy1.dart';
 
 class result extends StatefulWidget {
@@ -45,7 +46,7 @@ class resultstate extends State {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => setting_privacy1(),
+                        builder: (context) => profile2(),
                       ),
                     );
                   },
@@ -108,13 +109,13 @@ class resultstate extends State {
                 child: Opacity(
                   opacity: 0.95,
                   child: Container(
-                    color: Color.fromARGB(255, 255, 218, 54),
+                    color: Color.fromARGB(255, 244, 224, 133),
                     width: double.infinity,
                     height: 390,
                     child: Column(
                       children: [
                         Container(
-                          color: Color.fromARGB(255, 255, 218, 54),
+                          color: Color.fromARGB(255, 244, 224, 133),
                           child: Column(
                             children: [
                               ClipRRect(

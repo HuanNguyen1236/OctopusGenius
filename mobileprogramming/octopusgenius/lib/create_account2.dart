@@ -20,25 +20,35 @@ class create_account2state extends State {
         ),
       ),
       child: Scaffold(
+        appBar: PreferredSize(
+          child: Opacity(
+            opacity: 0.5,
+            child: AppBar(
+              title: const Text(
+                "Create account",
+                style: TextStyle(
+                  fontSize: 25,
+                ),
+              ),
+              actions: <Widget>[],
+              backgroundColor: Color.fromARGB(255, 40, 3, 105),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                  bottomRight: Radius.circular(40),
+                ),
+              ),
+            ),
+          ),
+          preferredSize: Size.fromHeight(80),
+        ),
         backgroundColor: Colors.transparent,
         body: Center(
           child: Stack(
             children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 150),
-                child: Text(
-                  'Create account',
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(255, 40, 3, 150),
-                  ),
-                ),
-              ),
               SingleChildScrollView(
                 child: Container(
                   padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.3,
+                    top: MediaQuery.of(context).size.height * 0.1,
                   ),
                   child: Column(
                     children: [

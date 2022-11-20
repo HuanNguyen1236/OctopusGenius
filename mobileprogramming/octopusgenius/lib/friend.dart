@@ -42,15 +42,34 @@ class friendstate extends State {
                   child: Container(
                     child: Column(
                       children: [
-                        Container(
-                          child: Row(
-                            children: [
-                              CircleAvatar(
-                                backgroundColor: Colors.grey,
-                                radius: 75,
-                              )
-                            ],
-                          ),
+                        Column(
+                          children: [
+                            Row(
+                              children: [
+                                IconButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  icon: Icon(
+                                    Icons.arrow_back,
+                                    color: Color.fromARGB(255, 199, 199, 199),
+                                    size: 30,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 20),
+                                  child: CircleAvatar(
+                                    backgroundColor: Colors.grey,
+                                    radius: 75,
+                                  ),
+                                )
+                              ],
+                            )
+                          ],
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,

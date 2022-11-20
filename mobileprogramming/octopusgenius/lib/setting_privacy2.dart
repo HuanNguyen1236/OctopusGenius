@@ -19,6 +19,27 @@ class setting_privacy2state extends State {
         ),
       ),
       child: Scaffold(
+        appBar: PreferredSize(
+          child: Opacity(
+            opacity: 0.5,
+            child: AppBar(
+              title: const Text(
+                "Setting privacy",
+                style: TextStyle(
+                  fontSize: 25,
+                ),
+              ),
+              actions: <Widget>[],
+              backgroundColor: Color.fromARGB(255, 40, 3, 105),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                  bottomRight: Radius.circular(40),
+                ),
+              ),
+            ),
+          ),
+          preferredSize: Size.fromHeight(80),
+        ),
         backgroundColor: Colors.transparent,
         body: Center(
           child: Stack(

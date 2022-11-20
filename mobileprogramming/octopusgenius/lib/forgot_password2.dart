@@ -20,6 +20,27 @@ class forgot_password2state extends State {
         ),
       ),
       child: Scaffold(
+        appBar: PreferredSize(
+          child: Opacity(
+            opacity: 0.5,
+            child: AppBar(
+              title: const Text(
+                "Fotgot password",
+                style: TextStyle(
+                  fontSize: 25,
+                ),
+              ),
+              actions: <Widget>[],
+              backgroundColor: Color.fromARGB(255, 40, 3, 105),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                  bottomRight: Radius.circular(40),
+                ),
+              ),
+            ),
+          ),
+          preferredSize: Size.fromHeight(80),
+        ),
         backgroundColor: Colors.transparent,
         body: Center(
           child: Stack(
@@ -27,21 +48,10 @@ class forgot_password2state extends State {
               SingleChildScrollView(
                 child: Container(
                   padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.2,
+                    top: MediaQuery.of(context).size.height * 0.1,
                   ),
                   child: Column(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 30, right: 170),
-                        child: Text(
-                          'Forgot password',
-                          style: TextStyle(
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 40, 3, 150),
-                          ),
-                        ),
-                      ),
                       Container(
                         width: 350,
                         child: Column(
