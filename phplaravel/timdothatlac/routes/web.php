@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NguoiDungController;
 use App\Http\Controllers\BaiDangController;
-use App\Http\Controllers\adminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,8 +25,8 @@ Route::controller(BaiDangController::class)->group(function(){
     Route::post('/cap-nhat/{id}','update')->name('xl-cap-nhat-bai-dang')->middleware('auth');
 });
 Route::get('post',[NguoiDungController::class, 'index'])->name('trang-chu');
-Route::get('admin',[adminController::class, 'index'])->name('admin');
-Route::get('bai-dang',[adminController::class, 'bai_dang'])->name('bai-dang');
+Route::get('admin',[NguoiDungController::class, 'admin'])->name('admin');
+Route::get('nguoi_dung',[admin::class, 'nguoi_dung'])->name('nguoi_dung');
 //Route::get('post',[UserController::class, 'index'])->name('trang-chu')->middleware('auth');
 //Route::get('post',[PostController::class, 'create'])->name('form-them-moi-bai-dang');
 //Route::post('post',[PostController::class, 'store'])->name('them-moi-bai-dang');

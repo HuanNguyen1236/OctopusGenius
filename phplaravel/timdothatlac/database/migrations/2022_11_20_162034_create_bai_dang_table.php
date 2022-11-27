@@ -17,6 +17,7 @@ class CreateBaiDangTable extends Migration
             $table->id();
             $table->string('tieu_de');
             $table->integer('id_tai_khoan');
+            $table->integer('id_loai_do_vat');
             $table->integer('id_loai_bai_dang');
             $table->string('hinh_anh');
             $table->string('trang_thai')->default(1);

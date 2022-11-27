@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Ninestars Index</title>
+  <title>Octopus Genius </title>
   <meta content="" name="description">
   <meta content="" name="keywords">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -28,8 +28,8 @@
   <link href="css/style.css" rel="stylesheet">
 
   <!-- =======================================================
-  * Template Name: Ninestars - v4.9.1
-  * Template URL: https://bootstrapmade.com/ninestars-free-bootstrap-3-theme-for-creative/
+  * Template Name: Octopus Genius - v4.9.1
+  * Template URL: https://bootstrapmade.com/Octopus Genius-free-bootstrap-3-theme-for-creative/
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
@@ -43,7 +43,7 @@
 <p></p>
     @if(Auth::id()==null)
     <div class="logo">
-        <h1 class="text-light"><a href="index.html"><span>Ninestars</span></a></h1>
+        <h1 class="text-light"><a href="index.html"><span>Octopus Genius</span></a></h1>
           @else 
           <div class="logo">
         <h1 class="text-light"><a href="{{ route('thong-tin-nguoi-dung',['id' => Auth::id()]) }}"><span></span>{{ $nguoiDung->ten_dang_nhap}}</a></h1>
@@ -98,11 +98,11 @@
         <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
           <h1> 
             <p>Bạn cần tìm gì đó ?</p>
-            <p>Đừng lo đã có Ninestars. </p>  
+            <p>Đã có Octopus genius </p>  
           </h1>
-          <h2>Ninestars nơi bạn có thể tìm thứ bạn cần </h2>
+          <h2>Octopus Genius nơi bạn có thể tìm thứ bạn cần </h2>
           <div>
-            <a href="#about" class="btn-get-started scrollto">Tìm kiếm ngay</a>
+            <a href="#about" class="btn-get-started scrollto">Đăng tin ngay</a>
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img">
@@ -217,7 +217,7 @@
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
         @foreach($listPost as $post)
-          <div class="col-lg-4 col-md-6 portfolio-item filter-{{$post->id_loai_bai_dang}}">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-{{$post->loai_bai_post}}">
             <div class="portfolio-wrap">
             <img src="{{ url('public/Image/'.$post->hinh_anh) }}">
               <div class="portfolio-links">
@@ -239,41 +239,22 @@
     </section><!-- End Portfolio Section -->
 
     
-    <!-- End Clients Section -->
     <section id="search" class="contact">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
           <h2>Đăng tin ngay</h2>
-          <p>Bạn cần tìm gì đó ? Đã có Ninestars</p>
+          <p>Bạn cần tìm gì đó ? Đã có Octopus Genius</p>
         </div>
 
-        <div class="row">
+        <div class="row" >
+          <style>
+            .row{
+              align-self: center;
+            }
+          </style>
 
-          <div class="col-lg-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-            <div class="info">
-              <div class="address">
-                <i class="bi bi-geo-alt"></i>
-                <h4>Location:</h4>
-                <p>A108 Adam Street, New York, NY 535022</p>
-              </div>
-
-              <div class="email">
-                <i class="bi bi-envelope"></i>
-                <h4>Email:</h4>
-                <p>info@example.com</p>
-              </div>
-
-              <div class="phone">
-                <i class="bi bi-phone"></i>
-                <h4>Call:</h4>
-                <p>+1 5589 55488 55s</p>
-              </div>
-
-              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
-            </div>
-
-          </div>
+          
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
             <form action="{{route('them-moi-bai-dang')}}" method="post" role="form" class="php-email-form" enctype = "multipart/form-data">
@@ -329,42 +310,17 @@
 
         <div class="section-title">
           <h2>Tìm ngay</h2>
-          <p>Bạn cần tìm gì đó ? Đã có Ninestars</p>
+          <p>Bạn cần tìm gì đó ? Đã có Octopus Genius</p>
         </div>
 
         <div class="row">
 
-          <div class="col-lg-5 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-            <div class="info">
-              <div class="address">
-                <i class="bi bi-geo-alt"></i>
-                <h4>Location:</h4>
-                <p>A108 Adam Street, New York, NY 535022</p>
-              </div>
-
-              <div class="email">
-                <i class="bi bi-envelope"></i>
-                <h4>Email:</h4>
-                <p>info@example.com</p>
-              </div>
-
-              <div class="phone">
-                <i class="bi bi-phone"></i>
-                <h4>Call:</h4>
-                <p>+1 5589 55488 55s</p>
-              </div>
-
-              <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
-            </div>
-
-          </div>
+          
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-            
-            <form action="" method="get" class="email-form"> 
-            @csrf
+            <form action="" class="php-email-form"> 
               <div class="form-group mt-3">
-                <input type="text" class="form-control" name="search" id="subject" placeholder="Tìm kiếm" >
+                <input type="text" class="form-control" name="search" id="subject" placeholder="Tìm kiếm" required>
               </div>
               <div class="text-center"><button type="submit">Tìm kiếm</button></div>
             </form>
@@ -402,7 +358,7 @@
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>Ninestars</h3>
+            <h3>Octopus Genius</h3>
             <p>
               A108 Adam Street <br>
               New York, NY 535022<br>
@@ -448,13 +404,13 @@
 
     <div class="container py-4">
       <div class="copyright">
-        <!-- &copy; Copyright <strong><span>Ninestars</span></strong>. All Rights Reserved -->
+        <!-- &copy; Copyright <strong><span>Octopus Genius</span></strong>. All Rights Reserved -->
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/ninestars-free-bootstrap-3-theme-for-creative/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/Octopus Genius-free-bootstrap-3-theme-for-creative/ -->
         <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> -->
       </div>
     </div>

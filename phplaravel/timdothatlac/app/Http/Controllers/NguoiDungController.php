@@ -18,22 +18,22 @@ class NguoiDungController extends Controller
      */
     public function index()
     {
-        if(request()->search){
-            $id=Auth::id();
-            $search=request()->search;
-            $listPost=BaiDang::orderBy('updated_at','DESC')->where('tieu_de','like','%'.$search.'%')->get();
-            $nguoiDung=NguoiDung::where('id',$id)->first();
-            $listDM=LoaiBaiDang::all();
-            return view('nguoi-dung.welcome',['listPost'=>$listPost,'nguoiDung'=>$nguoiDung,'listDM'=>$listDM]);
-        }
-        else{
+        // if(request()->search){
+        //     $search=request()->search;
+        //     $listPost=Post::all()->where('NguoiDungname ','like','%'.$search.'%');
+        //     return view('nguoi-dung.welcome',['listPost'=>$listPost]);
+        // }
+        // else{
+        // $id=Auth::id();
+        // $NguoiDung=NguoiDung::where('id',$id)->first();
+        // $listPost=Post::all();
+        // return view('nguoi-dung.welcome',['listPost'=>$listPost,'NguoiDung'=>$NguoiDung]);
+        // }
         $id=Auth::id();
         $nguoiDung=NguoiDung::where('id',$id)->first();
         $listPost=BaiDang::orderBy('updated_at','DESC')->get();
         $listDM=LoaiBaiDang::all();
         return view('nguoi-dung.welcome',['listPost'=>$listPost,'nguoiDung'=>$nguoiDung,'listDM'=>$listDM]);
-        }
-        
     }
     public function admin()
     {
@@ -78,7 +78,6 @@ class NguoiDungController extends Controller
             $data['dia_chi']= $request->address;
             $data['ngay_sinh']= $request->birthday;
         $data->save();
-        
     }
 
     /**

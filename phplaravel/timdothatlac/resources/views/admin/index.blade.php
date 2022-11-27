@@ -4,15 +4,39 @@
     <head>
         <title>Admin Home Page</title>
         <!-- Bootstrap -->
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-        <link href="vendor/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
-        <link href="vendors/easypiechart/jquery.easy-pie-chart.css" rel="stylesheet" media="screen">
-        <link href="assets/styles.css" rel="stylesheet" media="screen">
+        <link href="bootstrapadmin/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="bootstrapadmin/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+        <link href="vendorsadmin/easypiechart/jquery.easy-pie-chart.css" rel="stylesheet" media="screen">
+        <link href="assetsadmin/styles.css" rel="stylesheet" media="screen">
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
             <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
-        <script src="vendors/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script src="vendorsadmin/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
+
+        <link href="bootstrapadmin/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="bootstrapadmin/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+        <link href="assetsadmin/styles.css" rel="stylesheet" media="screen">
+        <link href="assetsadmin/DT_bootstrap.css" rel="stylesheet" media="screen">
+        <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="vendorsadmin/flot/excanvas.min.js"></script><![endif]-->
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <script src="vendorsadmin/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+        <script src="vendorsadmin/jquery-1.9.1.js"></script>
+        <script src="bootstrapadmin/js/bootstrap.min.js"></script>
+        <script src="vendorsadmin/datatables/js/jquery.dataTables.min.js"></script>
+
+
+        <script src="assetsadmin/scripts.js"></script>
+        <script src="assetsadmin/DT_bootstrap.js"></script>
+        <script>
+        $(function() {
+            
+        });
+        </script>
     </head>
     
     <body>
@@ -43,7 +67,7 @@
                         </ul>
                         <ul class="nav">
                             <li class="active">
-                                <a href="#">Dashboard</a>
+                                <a href="#">Bài đăng</a>
                             </li>
                             <li class="dropdown">
                                 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Settings <b class="caret"></b>
@@ -131,22 +155,21 @@
                 <div class="span3" id="sidebar">
                     <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
                         <li class="active">
-                            <a href="index.html"><i class="icon-chevron-right"></i> Tai khoan</a>
+                            <a href="index.html"><i class="icon-chevron-right"></i> Bài đăng</a>
                         </li>
                         <li>
-                            <a href="{{ route('bai-dang') }}"><i class="icon-chevron-right"></i> Bai dang </a>
+                            <a href="tables.html"><i class="icon-chevron-right"></i> Bài đăng cần duyệt</a>
                         </li>
                         <li>
-                            <a href="stats.html"><i class="icon-chevron-right"></i>  Duyet bai dang</a>
-                        </li>
-                        
-                        <li>
-                            <a href="form.html"><i class="icon-chevron-right"></i> Bao cao</a>
+                            <a href="calendar.html"><i class="icon-chevron-right"></i> Tài khoản người dùng</a>
                         </li>
                         <li>
-                            <a href="{{ route('trang-chu') }}"><i class="icon-chevron-right"></i>Trang  user</a>
+                            <a href="stats.html"><i class="icon-chevron-right"></i> Tài khoản  quản lý</a>
                         </li>
-                        <!-- <li>
+                        <li>
+                            <a href="form.html"><i class="icon-chevron-right"></i>Báo cáo</a>
+                        </li>
+                        <li>
                             <a href="tables.html"><i class="icon-chevron-right"></i> Tables</a>
                         </li>
                         <li>
@@ -157,7 +180,7 @@
                         </li>
                         <li>
                             <a href="interface.html"><i class="icon-chevron-right"></i> UI & Interface</a>
-                        </li> -->
+                        </li>
                         
                     </ul>
                 </div>
@@ -165,45 +188,56 @@
                 <!--/span-->
                 <div class="span9" id="content">
                     <div class="row-fluid">
-                        <!-- <div class="alert alert-success">
-							<button type="button" class="close" data-dismiss="alert">&times;</button>
-                            <h4>Success</h4>
-                        	The operation completed successfully</div>
-                        	 <div class="navbar">
-                            	<div class="navbar-inner">
-	                                <ul class="breadcrumb">
-	                                    <i class="icon-chevron-left hide-sidebar"><a href='#' title="Hide Sidebar" rel='tooltip'>&nbsp;</a></i>
-	                                    <i class="icon-chevron-right show-sidebar" style="display:none;"><a href='#' title="Show Sidebar" rel='tooltip'>&nbsp;</a></i>
-	                                    
-	                                </ul>
-                            	</div>
-                        	</div> -->
-                    	<!-- </div> --> 
-                
+                        
                     
-                    <div class="row-fluid">
+                    <div class="span9" id="content">
+
+                    
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+
+                     <div class="row-fluid">
                         <!-- block -->
                         <div class="block">
                             <div class="navbar navbar-inner block-header">
-                                <div class="muted pull-left">Basic Table</div>
+                                <div class="muted pull-left">Danh sách tài khoản</div>
                             </div>
                             <div class="block-content collapse in">
                                 <div class="span12">
-  									<table class="table">
-						              <thead>
-						                <tr>
-						                  <th>Id</th>
-						                  <th>Tên dăng nhập</th>
-						                  <th>Trạng thái</th>
-						                  <th></th>
-						                </tr>
-						              </thead>
-						              <tbody>
-                                      @foreach($nguoiDung as $nd)
+                                   <div class="table-toolbar">
+                                      <div class="btn-group">
+                                         <a href="#"><button class="btn btn-success">Thêm tài khoản <i class="icon-plus icon-white"></i></button></a>
+                                      </div>
+                                      
+                                   </div>
+                                    
+                                    <table cellpadding="0" cellspacing="0" ,border="0" class="table table-striped table-bordered" id="example2">
+                                        <thead>
                                             <tr>
-                                               
+                                                <th>ID</th>
+                                                <th>Tên đăng nhập</th>
+                                                <th>Email</th>
+                                                <th>Số điện thoại</th>
+                                                <th>Ngày sinh</th>
+                                                <th>Trạng thái</th>
+                                                <th>Quản lý</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($nguoiDung as $nd)
+                                            <tr>
                                                 <td>{{$nd->id}}</td>
                                                 <td>{{$nd->ten_dang_nhap}}</td>
+                                                <td>{{$nd->email}}</td>
+                                                <td>{{$nd->sdt}}</td>
+                                                <td>{{$nd->ngay_sinh}}</td>
                                                 <td>{{$nd->trang_thai}}</td>
                                                 <td>
                                                 <!-- <button class="btn btn-success">Button</button>
@@ -212,28 +246,28 @@
                                                 </td>
                                             </tr>
                                         @endforeach
-						                
-						              </tbody>
-						            </table>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
                         <!-- /block -->
                     </div>
+                </div>
                     
                     
                 </div>
             </div>
             <hr>
             <footer>
-                <p>&copy;Octopus Genius</p>
+                <p>&copy; Vincent Gabriel 2013</p>
             </footer>
         </div>
         <!--/.fluid-container-->
-        <script src="vendors/jquery-1.9.1.min.js"></script>
-        <script src="bootstrap/js/bootstrap.min.js"></script>
-        <script src="vendors/easypiechart/jquery.easy-pie-chart.js"></script>
-        <script src="assets/scripts.js"></script>
+        <script src="vendorsadmin/jquery-1.9.1.min.js"></script>
+        <script src="bootstrapadmin/js/bootstrap.min.js"></script>
+        <script src="vendorsadmin/easypiechart/jquery.easy-pie-chart.js"></script>
+        <script src="assetsadmin/scripts.js"></script>
         <script>
         $(function() {
             // Easy pie charts

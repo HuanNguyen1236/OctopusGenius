@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\NguoiDung;
-use App\Models\BaiDang;
-use App\Models\LoaiBaiDang;
 
-class adminController extends Controller
+class admin extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,14 +13,14 @@ class adminController extends Controller
      */
     public function index()
     {
-        $nguoiDung=NguoiDung::all();
-        return view('admin.index',['nguoiDung'=>$nguoiDung]);
+        //
     }
-    public function bai_dang()
+    public function nguoi_dung()
     {
-        $baiDang=BaiDang::all();
-        return view('admin.bai_dang',['baiDang'=>$baiDang]);
+        $nguoiDung=NguoiDung::all();
+        return view('admin.nguoi_dung',['nguoiDung'=>$nguoiDung]);   
     }
+
 
     /**
      * Show the form for creating a new resource.
