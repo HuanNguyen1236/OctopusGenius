@@ -1,9 +1,12 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:octopusgenius/home.dart';
 import 'package:octopusgenius/level.dart';
 import 'package:octopusgenius/result.dart';
 import 'package:octopusgenius/setting_privacy1.dart';
+import 'package:get/get.dart';
 
 class game extends StatefulWidget {
   @override
@@ -12,12 +15,26 @@ class game extends StatefulWidget {
   }
 }
 
-class gamestate extends State {
-  bool click = true;
-  // ignore: prefer_typing_uninitialized_variables
-  var dem;
+class gamestate extends State<game> {
+  int timeleft = 20;
+  void startcountdown() {
+    Timer.periodic(Duration(seconds: 1), (timer) {
+      if (timeleft > 0) {
+        setState(() {
+          timeleft--;
+        });
+      } else {
+        timer.cancel();
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => result(),
+          ),
+        );
+      }
+    });
+  }
 
-  @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
@@ -114,8 +131,12 @@ class gamestate extends State {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
+                              MaterialButton(
+                                onPressed: startcountdown,
+                                child: Text('sTARR'),
+                              ),
                               Text(
-                                '10',
+                                timeleft.toString(),
                                 style: TextStyle(
                                   fontSize: 20,
                                   color: Colors.white,
@@ -444,15 +465,9 @@ class gamestate extends State {
                                 borderRadius: BorderRadius.circular(50),
                                 child: Container(
                                   height: 50,
-                                  color: (click != false)
-                                      ? Colors.white
-                                      : Colors.red,
+                                  color: Colors.white,
                                   child: MaterialButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        click = false;
-                                      });
-                                    },
+                                    onPressed: () {},
                                     child: Text(
                                       'Tủ lạnh',
                                       style: TextStyle(
@@ -467,9 +482,7 @@ class gamestate extends State {
                                 borderRadius: BorderRadius.circular(50),
                                 child: Container(
                                   height: 50,
-                                  color: (click != false)
-                                      ? Colors.white
-                                      : Colors.green,
+                                  color: Colors.white,
                                   child: MaterialButton(
                                     onPressed: () {
                                       Navigator.push(
@@ -493,15 +506,9 @@ class gamestate extends State {
                                 borderRadius: BorderRadius.circular(50),
                                 child: Container(
                                   height: 50,
-                                  color: (click != false)
-                                      ? Colors.white
-                                      : Colors.red,
+                                  color: Colors.white,
                                   child: MaterialButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        click = false;
-                                      });
-                                    },
+                                    onPressed: () {},
                                     child: Text(
                                       'Máy lạnh',
                                       style: TextStyle(
@@ -516,15 +523,9 @@ class gamestate extends State {
                                 borderRadius: BorderRadius.circular(50),
                                 child: Container(
                                   height: 50,
-                                  color: (click != false)
-                                      ? Colors.white
-                                      : Colors.red,
+                                  color: Colors.white,
                                   child: MaterialButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        click = false;
-                                      });
-                                    },
+                                    onPressed: () {},
                                     child: Text(
                                       'Lò nướng',
                                       style: TextStyle(

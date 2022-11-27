@@ -217,7 +217,7 @@
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
         @foreach($listPost as $post)
-          <div class="col-lg-4 col-md-6 portfolio-item filter-{{$post->loai_bai_post}}">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-{{$post->id_loai_bai_dang}}">
             <div class="portfolio-wrap">
             <img src="{{ url('public/Image/'.$post->hinh_anh) }}">
               <div class="portfolio-links">
@@ -360,9 +360,11 @@
           </div>
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-            <form action="" class="php-email-form"> 
+            
+            <form action="" method="get" class="email-form"> 
+            @csrf
               <div class="form-group mt-3">
-                <input type="text" class="form-control" name="search" id="subject" placeholder="Tìm kiếm" required>
+                <input type="text" class="form-control" name="search" id="subject" placeholder="Tìm kiếm" >
               </div>
               <div class="text-center"><button type="submit">Tìm kiếm</button></div>
             </form>

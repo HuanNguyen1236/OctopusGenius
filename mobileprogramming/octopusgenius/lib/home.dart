@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:octopusgenius/event.dart';
@@ -13,6 +15,8 @@ class home extends StatefulWidget {
 }
 
 class homestate extends State {
+  final _auth = FirebaseAuth.instance;
+  final _fireStore = FirebaseFirestore.instance;
   @override
   Widget build(BuildContext context) {
     return Container(

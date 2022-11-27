@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\LoaiBaiDang;
+use App\Models\NguoiDung;
 
 class BaiDang extends Model
 {
@@ -19,6 +21,8 @@ class BaiDang extends Model
     public function nguoiDung(){
         return $this->belongsTo(NguoiDung::class);
     }
-    
+    public function loaiBaiDang(){
+        return $this->belongsTo(LoaiBaiDang::class);
+    }
     
 }

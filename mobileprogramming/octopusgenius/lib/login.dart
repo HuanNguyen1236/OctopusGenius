@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -15,6 +16,9 @@ class Login extends StatefulWidget {
 }
 
 class LoginState extends State<Login> {
+  TextEditingController txtEmail = TextEditingController();
+  TextEditingController txtPass = TextEditingController();
+  final _auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -45,6 +49,7 @@ class LoginState extends State<Login> {
                         child: Column(
                           children: [
                             TextField(
+                              controller: txtEmail,
                               decoration: InputDecoration(
                                 fillColor: Colors.white,
                                 filled: true,
@@ -62,6 +67,7 @@ class LoginState extends State<Login> {
                               height: 5,
                             ),
                             TextField(
+                              controller: txtPass,
                               obscureText: true,
                               decoration: InputDecoration(
                                 fillColor: Colors.white,
@@ -88,16 +94,39 @@ class LoginState extends State<Login> {
                               height: 60,
                               child: MaterialButton(
                                 color: Color.fromARGB(255, 95, 44, 183),
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => home(),
-                                    ),
-                                  );
+                                onPressed: () async {
+                                  try {
+                                    final _user =
+                                        _auth.signInWithEmailAndPassword(
+                                            email: txtEmail.text,
+                                            password: txtPass.text);
+                                    _auth.authStateChanges().listen((event) {
+                                      if (event != null) {
+                                        txtEmail.clear();
+                                        txtPass.clear();
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => home(),
+                                          ),
+                                        );
+                                      } else {
+                                        final snackBar = SnackBar(
+                                            content: Text(
+                                                'Email hoặc mật khẩu không hợp đúng'));
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(snackBar);
+                                      }
+                                    });
+                                  } catch (e) {
+                                    final snackBar = SnackBar(
+                                        content: Text('Lỗi kêt nối dữ liệu'));
+                                    ScaffoldMessenger.of(context)
+                                        .showSnackBar(snackBar);
+                                  }
                                 },
                                 child: Text(
-                                  'Sign in',
+                                  'Đăng nhập',
                                   style: TextStyle(
                                     color: Color.fromARGB(255, 255, 255, 255),
                                     fontSize: 20,
@@ -122,9 +151,16 @@ class LoginState extends State<Login> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) =>
-                                            create_account1()),
-                                  );
+                                      builder: (context) => create_account1(),
+                                    ),
+                                  ).then((value) {
+                                    if (value != null) {
+                                      final snackBar =
+                                          SnackBar(content: Text(value));
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(snackBar);
+                                    }
+                                  });
                                 },
                                 child: Text(
                                   'Sign up',

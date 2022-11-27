@@ -5,6 +5,7 @@ import 'package:octopusgenius/login.dart';
 Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
