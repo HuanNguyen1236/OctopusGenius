@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\BaiDang;
+use App\Models\LoaiBaiDang;
+use App\Models\NguoiDung;
 
-class admin extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,14 +16,16 @@ class admin extends Controller
      */
     public function index()
     {
-        //
+        $admin= NguoiDung::paginate(5);
+        return view('index', compact('nguoidung'))->with('i',(repuest()->input('page',1)-1)*5);
+        
     }
-    public function nguoi_dung()
+    public function dstaikhoan()
     {
-        $nguoiDung=NguoiDung::all();
-        return view('admin.nguoi_dung',['nguoiDung'=>$nguoiDung]);   
+        $nguoiDung=NguoiDung::all()->where('trang_thai',1);
+        return view('admin.index',['nguoiDung'=>$nguoiDung]);
     }
-
+    
 
     /**
      * Show the form for creating a new resource.
@@ -40,7 +45,7 @@ class admin extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -85,6 +90,9 @@ class admin extends Controller
      */
     public function destroy($id)
     {
-        //
+        $nguoiDung=NguoiDung::find($id);
+        $nguoiDung['trang_thai']=2;
+        $nguoiDung->save();
+        return redirect()->route('admin')->with('Thông báo', 'Xóa sinh viên thành công');
     }
 }

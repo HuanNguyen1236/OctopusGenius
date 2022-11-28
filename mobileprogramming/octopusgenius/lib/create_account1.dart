@@ -118,8 +118,7 @@ class create_account1state extends State {
                                   Navigator.pop(context, 'Đăng kí thành công!');
                                 } else {
                                   final snackBar = SnackBar(
-                                    content:
-                                        Text('Tài  khoản này không hợp lệ'),
+                                    content: Text('Tài khoản này không hợp lệ'),
                                   );
                                   ScaffoldMessenger.of(context)
                                       .showSnackBar(snackBar);

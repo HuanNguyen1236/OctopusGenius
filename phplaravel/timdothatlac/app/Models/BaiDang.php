@@ -12,6 +12,7 @@ class BaiDang extends Model
     protected $fillable=[
         'tieu_de',
         'id_loai_bai_dang',
+        'id_loai_do_vat',
         'dia_chi',
         'mo_ta',
         'hinh_anh'

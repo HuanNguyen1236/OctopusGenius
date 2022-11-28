@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\BaiDang;
 use App\Models\LoaiBaiDang;
 use App\Models\NguoiDung;
+use App\Models\LoaiDoVat;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 class BaiDangController extends Controller
@@ -58,6 +59,7 @@ class BaiDangController extends Controller
             $data['hinh_anh']= $filename;
             $data['tieu_de']= $request->name;
             $data['id_loai_bai_dang']= $request->loai_bai_post;
+            $data['id_loai_do_vat']= $request->loai_do_vat;
             $data['id_tai_khoan']= Auth::id();
             $data['dia_chi']= $request->address;
             $data['mo_ta']= $request->mo_ta;

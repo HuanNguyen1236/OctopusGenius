@@ -259,6 +259,17 @@
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
             <form action="{{route('them-moi-bai-dang')}}" method="post" role="form" class="php-email-form" enctype = "multipart/form-data">
               @csrf
+
+              <div class="form-group mt-3">
+                <label for="name">Loại bài đăng</label>
+                
+                <select id="subject" name="loai_bai_post">
+                @foreach($listDM as $dm)
+                <option value="{{$dm->id}}">{{$dm->loai_bai_dang}}</option>
+                @endforeach
+                </select>
+                
+              </div>
               <div class="row">
                 <div class="form-group mt-3">
                   <label for="name">Tiêu đề</label>
@@ -273,9 +284,9 @@
               <div class="form-group mt-3">
                 <label for="name">Loại bài đăng</label>
                 
-                <select id="subject" name="loai_bai_post">
+                <select id="subject" name="loai_do_vat">
                 @foreach($listDM as $dm)
-                <option value="{{$dm->id}}">{{$dm->loai_bai_dang}}</option>
+                <option value="{{$dv->id}}">{{$dm->loai_do_vat}}</option>
                 @endforeach
                 </select>
                 
