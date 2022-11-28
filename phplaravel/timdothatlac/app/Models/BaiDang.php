@@ -22,4 +22,5 @@ class BaiDang extends Model
     }
     
     
+    
 }

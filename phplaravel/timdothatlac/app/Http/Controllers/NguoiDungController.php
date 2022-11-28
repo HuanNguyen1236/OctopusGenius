@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\PostController;
 use Illuminate\Http\Request;
+use App\Models\LoaiDoVat;
 use App\Models\NguoiDung;
 use App\Models\BaiDang;
 use App\Models\LoaiBaiDang;
@@ -33,7 +34,8 @@ class NguoiDungController extends Controller
         $nguoiDung=NguoiDung::where('id',$id)->first();
         $listPost=BaiDang::orderBy('updated_at','DESC')->get();
         $listDM=LoaiBaiDang::all();
-        return view('nguoi-dung.welcome',['listPost'=>$listPost,'nguoiDung'=>$nguoiDung,'listDM'=>$listDM]);
+        $listDV=LoaiDoVat::all();
+        return view('nguoi-dung.welcome',['listPost'=>$listPost,'nguoiDung'=>$nguoiDung,'listDM'=>$listDM, 'listDV'=>$listDV]);
     }
     public function admin()
     {
@@ -41,7 +43,8 @@ class NguoiDungController extends Controller
         $nguoiDung=NguoiDung::where('id',$id)->first();
         $listPost=BaiDang::orderBy('updated_at','DESC')->get();
         $listDM=LoaiBaiDang::all();
-        return view('admin.index',['listPost'=>$listPost,'nguoiDung'=>$nguoiDung,'listDM'=>$listDM]);
+        $listDV=LoaiDoVat::all();
+        return view('nguoi-dung.welcome',['listPost'=>$listPost,'nguoiDung'=>$nguoiDung,'listDM'=>$listDM, 'listDV'=>$listDV]);
     }
 
     /**

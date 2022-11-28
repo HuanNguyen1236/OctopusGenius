@@ -28,7 +28,8 @@ class BaiDangController extends Controller
         $user=NguoiDung::where('id',$id)->first();
         $listDM=LoaiBaiDang::all();
         $listPost=BaiDang::all();
-        return view('nguoi-dung.welcome',['listPost'=>$listPost], ['listDM'=>$listDM],['user'=>$user]);
+        $listDV=LoaiDoVat::all();
+        return view('nguoi-dung.welcome',['listPost'=>$listPost], ['listDM'=>$listDM], ['listDV'=>$listDV],['user'=>$user]);
         }
     }
 
@@ -59,7 +60,7 @@ class BaiDangController extends Controller
             $data['hinh_anh']= $filename;
             $data['tieu_de']= $request->name;
             $data['id_loai_bai_dang']= $request->loai_bai_post;
-            $data['id_loai_do_vat']= $request->loai_do_vat;
+            //$data['id_loai_do_vat']= $request->loai_do_vat;
             $data['id_tai_khoan']= Auth::id();
             $data['dia_chi']= $request->address;
             $data['mo_ta']= $request->mo_ta;

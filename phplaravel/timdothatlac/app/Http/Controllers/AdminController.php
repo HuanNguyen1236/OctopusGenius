@@ -16,14 +16,19 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $admin= NguoiDung::paginate(5);
-        return view('index', compact('nguoidung'))->with('i',(repuest()->input('page',1)-1)*5);
+        // $admin= NguoiDung::paginate(5);
+        // return view('index', compact('nguoidung'))->with('i',(repuest()->input('page',1)-1)*5);
         
     }
     public function dstaikhoan()
     {
         $nguoiDung=NguoiDung::all()->where('trang_thai',1);
         return view('admin.index',['nguoiDung'=>$nguoiDung]);
+    }
+    public function dsbaidang()
+    {
+        $baiDang=BaiDang::all()->where('trang_thai',1);
+        return view('admin.dsbaidang',['baiDang'=>$baiDang]);
     }
     
 
@@ -93,6 +98,20 @@ class AdminController extends Controller
         $nguoiDung=NguoiDung::find($id);
         $nguoiDung['trang_thai']=2;
         $nguoiDung->save();
-        return redirect()->route('admin')->with('Thông báo', 'Xóa sinh viên thành công');
+        return redirect()->route('dstaikhoan')->with('Thông báo', 'Xóa tài khoản thành công');
+    }
+    public function xoabaidang($id)
+    {
+        $baiDang=BaiDang::find($id);
+        $baiDang['trang_thai']=2;
+        $baiDang->save();
+        return redirect()->route('dsbaidang')->with('Thông báo', 'Xóa bài đăng thành công');
+    }
+    public function duyetbaidang($id)
+    {
+        $baiDang=BaiDang::find($id);
+        $baiDang['trang_thai']=2;
+        $baiDang->save();
+        return redirect()->route('dsbaidang')->with('Thông báo', 'duyệt bài đăng thành công');
     }
 }

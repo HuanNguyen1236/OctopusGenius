@@ -42,6 +42,7 @@ Route::post('dang-ky',[NguoiDungController::class, 'store'])->name('dang-ky')->m
 
 
 /// admin
-Route::get('admin', [AdminController::class, 'dstaikhoan'],)->name('admin');
-Route::post('admin/xoa/{id}', [AdminController::class, 'destroy'],)->name('xoa');
-//Route:::resource('/nguoi-dung',NguoiDungController::class);
+Route::get('admin', [AdminController::class, 'dstaikhoan'],)->name('dstaikhoan');
+Route::get('baidang', [AdminController::class, 'dsbaidang'],)->name('dsbaidang');
+Route::post('admin/xoa/{id}', [AdminController::class, 'destroy'],)->name('xoataikhoan');
+Route::post('admin/xoabaidang/{id}', [AdminController::class, 'xoabaidang'],)->name('xoabaidang');

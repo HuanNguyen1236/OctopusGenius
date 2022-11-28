@@ -282,11 +282,11 @@
               </div>
              
               <div class="form-group mt-3">
-                <label for="name">Loại bài đăng</label>
+                <label for="name">Loại đồ vật</label>
                 
                 <select id="subject" name="loai_do_vat">
-                @foreach($listDM as $dm)
-                <option value="{{$dv->id}}">{{$dm->loai_do_vat}}</option>
+                @foreach($listDV as $dv)
+                <option value="{{$dv->id}}">{{$dv->loai_do_vat}}</option>
                 @endforeach
                 </select>
                 
@@ -329,7 +329,7 @@
           
 
           <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-            <form action="" class="php-email-form"> 
+            <form action="" > 
               <div class="form-group mt-3">
                 <input type="text" class="form-control" name="search" id="subject" placeholder="Tìm kiếm" required>
               </div>

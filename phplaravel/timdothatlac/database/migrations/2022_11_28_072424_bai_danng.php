@@ -20,7 +20,7 @@ class CreateBaiDangTable extends Migration
             $table->integer('id_loai_do_vat');
             $table->integer('id_loai_bai_dang');
             $table->string('hinh_anh');
-            $table->string('trang_thai')->default(1);
+            $table->string('trang_thai')->default(2);
             $table->timestamps();
             $table->softDeletes();
         });

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html class="no-js">
     
     <head>
@@ -40,7 +40,7 @@
     </head>
     
     <body>
-        @yield('content')
+        
 
 
 
@@ -63,38 +63,7 @@
         </div>
         <div class="container-fluid">
             <div class="row-fluid">
-                <div class="span3" id="sidebar">
-                    <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
-                        <li class="active">
-                            <a href="{{route('dstaikhoan')}}"><i class="icon-chevron-right"></i> Tài khoản</a>
-                        </li>
-                        <li>
-                            <a href=""><i class="icon-chevron-right"></i> Bài đăng cần duyệt</a>
-                        </li>
-                        <li>
-                             <a href="{{route('dsbaidang')}}"><i class="icon-chevron-right"></i> Bài đăng</a>
-                        </li>
-                        <li>
-                            <a href="stats.html"><i class="icon-chevron-right"></i> Tài khoản  quản lý</a>
-                        </li>
-                        <li>
-                            <a href="form.html"><i class="icon-chevron-right"></i>Báo cáo</a>
-                        </li>
-                        <li>
-                            <a href="tables.html"><i class="icon-chevron-right"></i> Tables</a>
-                        </li>
-                        <li>
-                            <a href="buttons.html"><i class="icon-chevron-right"></i> Buttons & Icons</a>
-                        </li>
-                        <li>
-                            <a href="editors.html"><i class="icon-chevron-right"></i> WYSIWYG Editors</a>
-                        </li>
-                        <li>
-                            <a href="interface.html"><i class="icon-chevron-right"></i> UI & Interface</a>
-                        </li>
-                        
-                    </ul>
-                </div>
+                
                 <!--/span-->
                 
 
@@ -106,14 +75,14 @@
                         <!-- block -->
                         <div class="block">
                             <div class="navbar navbar-inner block-header">
-                                <div class="muted pull-left">Danh sách tài khoản</div>
+                                <div class="muted pull-left">Danh sách bài đăng</div>
                             </div>
 
                             <div class="block-content collapse in">
                                 <div class="span12">
                                    <div class="table-toolbar">
                                       <div class="btn-group">
-                                         <a href="#"><button class="btn btn-success">Thêm tài khoản <i class="icon-plus icon-white"></i></button></a>
+                                         <a href="#"><button class="btn btn-success">Thêm bài đăng <i class="icon-plus icon-white"></i></button></a>
                                       </div>
                                       
                                    </div>
@@ -122,25 +91,27 @@
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Tên đăng nhập</th>
+                                                <th>Hình ảnh</th>
+                                                <th>Tài khoản</th>
                                                 <th>Email</th>
-                                                <th>Số điện thoại</th>
-                                                <th>Ngày sinh</th>
+                                                <th>Loại bài đăng</th>
+                                                <th>Loại đồ vật</th>
                                                 <th>Trạng thái</th>
                                                 <th>Quản lý</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        @foreach($nguoiDung as $nd)
+                                        @foreach($baiDang as $bd)
                                             <tr>
-                                                <td>{{$nd->id}}</td>
-                                                <td>{{$nd->ten_dang_nhap}}</td>
-                                                <td>{{$nd->email}}</td>
-                                                <td>{{$nd->sdt}}</td>
-                                                <td>{{$nd->ngay_sinh}}</td>
-                                                <td>{{$nd->trang_thai}}</td>
+                                                <td>{{$bd->id}}</td>
+                                                <td>{{$bd->hinh_anh}}</td>
+                                                <td>{{$bd->id_tai_khoan}}</td>
+                                                <td>{{$bd->email}}</td>
+                                                <td>{{$bd->id_loai_bai_dang}}</td>
+                                                <td>{{$bd->id_loai_do_vat}}</td>
+                                                <td>{{$bd->trang_thai}}</td>
                                                 <td>
-                                                    <form action="{{route('xoataikhoan', $nd->id)}}" method="POST">
+                                                    <form action="{{route('xoabaidang', $bd->id)}}" method="POST">
                                                         @csrf
                                                         <button type="submit" class="btn btn-danger"> Xóa</button>
                                                     </form>
@@ -180,4 +151,4 @@
         </script>
     </body>
 
-</html>
+</html> -->

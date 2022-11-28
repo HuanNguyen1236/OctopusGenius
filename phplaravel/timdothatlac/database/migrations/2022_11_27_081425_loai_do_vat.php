@@ -13,7 +13,7 @@ class LoaiDoVat extends Migration
      */
     public function up()
     {
-        Schema::create('loai_bai_dang', function (Blueprint $table) {
+        Schema::create('loai_do_vat', function (Blueprint $table) {
             $table->id();
             $table->string('loai_do_vat');
             $table->timestamps();
