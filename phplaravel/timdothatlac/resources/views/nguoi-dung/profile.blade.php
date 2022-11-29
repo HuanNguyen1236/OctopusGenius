@@ -117,12 +117,42 @@
 
           <div class="col-lg-4">
             <div class="portfolio-info">
-              <h3>{{$nguoiDung->ten_dang_nhap}}</h3>
-              <ul>
-                <li><strong>Họ và tên</strong>: {{$nguoiDung->ten_dang_nhap}}</li>
-                <li><strong>Địa chỉ</strong>: {{$nguoiDung->dia_chi}}</li>
-                <li><strong>Email:</strong>: <a href="#">{{$nguoiDung->email}}</a> <strong> SĐT</strong>: {{$nguoiDung->sdt}}</li>
-              </ul>
+            <form action="{{route('xl-cap-nhat-nguoi-dung',['id' => $nguoiDung->id])}}" method="post" role="form" enctype = "multipart/form-data">
+              @csrf
+              <div class="row">
+                <div class="form-group mt-3">
+                  <label for="name">Họ và tên</label>
+                  <input type="text" name="name" value="{{$nguoiDung->ten_dang_nhap}}"class="form-control" id="name" required>
+                </div>
+                
+              <div class="form-group mt-3">
+                <label for="name">Địa chỉ</label>
+                <input type="text" class="form-control" value="{{$nguoiDung->dia_chi}}" name="address" id="subject" required>
+              </div>
+             
+              
+              <div class="form-group mt-3">
+                <label for="name">Email</label>
+                <input type="text" class="form-control" value="{{$nguoiDung->email}}" name="email" rows="10" required></input>
+              </div>
+              <div class="form-group mt-3">
+             
+              <label for="name">sdt</label>
+             <input type="text" name="sdt" value="{{$nguoiDung->sdt}}" id = "fileSelect" rows="10" required>
+
+             </div>
+             <div>
+             <label for="name">Ngày sinh</label>
+             <input type="date" class="input-group mb-3" value="{{$nguoiDung->ngay_sinh}}" name="birthday">
+              </div>
+              <div class="my-3">
+                <div class="error-message"></div>
+               
+              </div>
+              <div class="text-center">
+                <button type="submit" class="btn btn-warning btn-large">Lưu</button>
+              </div>
+            </form>
             </div>
           </div>
 
@@ -149,6 +179,8 @@
               </div>
             </div>
           </div>
+
+          
           @endforeach
 
         </div>

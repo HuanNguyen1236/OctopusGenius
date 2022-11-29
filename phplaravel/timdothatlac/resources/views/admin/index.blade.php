@@ -69,7 +69,7 @@
                             <a href="{{route('dstaikhoan')}}"><i class="icon-chevron-right"></i> Tài khoản</a>
                         </li>
                         <li>
-                            <a href=""><i class="icon-chevron-right"></i> Bài đăng cần duyệt</a>
+                            <a href="{{route('dsbaidangduyet')}}"><i class="icon-chevron-right"></i> Bài đăng cần duyệt</a>
                         </li>
                         <li>
                              <a href="{{route('dsbaidang')}}"><i class="icon-chevron-right"></i> Bài đăng</a>

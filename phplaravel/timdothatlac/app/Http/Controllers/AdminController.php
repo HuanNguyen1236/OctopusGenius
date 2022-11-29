@@ -30,6 +30,11 @@ class AdminController extends Controller
         $baiDang=BaiDang::all()->where('trang_thai',1);
         return view('admin.dsbaidang',['baiDang'=>$baiDang]);
     }
+    public function dsbaidangduyet()
+    {
+        $baiDang=BaiDang::all()->where('trang_thai',2);
+        return view('admin.duyetbaidang',['baiDang'=>$baiDang]);
+    }
     
 
     /**
@@ -96,22 +101,22 @@ class AdminController extends Controller
     public function destroy($id)
     {
         $nguoiDung=NguoiDung::find($id);
-        $nguoiDung['trang_thai']=2;
+        $nguoiDung['trang_thai']=0;
         $nguoiDung->save();
         return redirect()->route('dstaikhoan')->with('Thông báo', 'Xóa tài khoản thành công');
     }
     public function xoabaidang($id)
     {
         $baiDang=BaiDang::find($id);
-        $baiDang['trang_thai']=2;
+        $baiDang['trang_thai']=0;
         $baiDang->save();
         return redirect()->route('dsbaidang')->with('Thông báo', 'Xóa bài đăng thành công');
     }
     public function duyetbaidang($id)
     {
         $baiDang=BaiDang::find($id);
-        $baiDang['trang_thai']=2;
+        $baiDang['trang_thai']=1;
         $baiDang->save();
-        return redirect()->route('dsbaidang')->with('Thông báo', 'duyệt bài đăng thành công');
+        return redirect()->route('dsbaidangduyet')->with('Thông báo', 'duyệt bài đăng thành công');
     }
 }

@@ -32,7 +32,7 @@ class NguoiDungController extends Controller
         // }
         $id=Auth::id();
         $nguoiDung=NguoiDung::where('id',$id)->first();
-        $listPost=BaiDang::orderBy('updated_at','DESC')->get();
+        $listPost=BaiDang::orderBy('updated_at','DESC')->where('trang_thai',1)->get();
         $listDM=LoaiBaiDang::all();
         $listDV=LoaiDoVat::all();
         return view('nguoi-dung.welcome',['listPost'=>$listPost,'nguoiDung'=>$nguoiDung,'listDM'=>$listDM, 'listDV'=>$listDV]);
@@ -41,7 +41,7 @@ class NguoiDungController extends Controller
     {
         $id=Auth::id();
         $nguoiDung=NguoiDung::where('id',$id)->first();
-        $listPost=BaiDang::orderBy('updated_at','DESC')->get();
+        $listPost=BaiDang::orderBy('updated_at','DESC')->where('trang_thai',1)->get();
         $listDM=LoaiBaiDang::all();
         $listDV=LoaiDoVat::all();
         return view('nguoi-dung.welcome',['listPost'=>$listPost,'nguoiDung'=>$nguoiDung,'listDM'=>$listDM, 'listDV'=>$listDV]);
@@ -93,7 +93,7 @@ class NguoiDungController extends Controller
     {
         $idnd=Auth::id();
         $nguoiDung=NguoiDung::where('id',$id)->first();
-        $listPost=BaiDang::where('id_tai_khoan',$idnd)->get();
+        $listPost=BaiDang::where('tai_khoan_id',$idnd)->get();
         
         return view('nguoi-dung.profile',['nguoiDung'=>$nguoiDung],['listPost'=>$listPost]);
     }
@@ -118,7 +118,14 @@ class NguoiDungController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data=NguoiDung::find($id);
+            $data['ten_dang_nhap']= $request->name;
+            $data['email']= $request->email;
+            $data['sdt']= $request->sdt;
+            $data['dia_chi']= $request->address;
+            $data['ngay_sinh']= $request->birthday;
+        $data->save();
+        return redirect()->route('thong-tin-nguoi-dung',['id' => Auth::id()]);
     }
 
     /**

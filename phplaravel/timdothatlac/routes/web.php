@@ -36,6 +36,7 @@ Route::get('/nguoi-dung/{id}',[NguoiDungController::class,'show'])->name('thong-
 Route::get('dang-nhap',[NguoiDungController::class, 'login'])->name('dang-nhap')->middleware('guest');
 Route::post('dang-nhap',[NguoiDungController::class, 'xuLylogin'])->name('xl-dang-nhap')->middleware('guest');
 Route::get('dang-xuat',[NguoiDungController::class, 'logOut'])->name('dang-xuat')->middleware('auth');
+Route::post('cap-nhat-nguoi-dung/{id}',[NguoiDungController::class,'update'])->name('xl-cap-nhat-nguoi-dung')->middleware('auth');
 
 Route::get('dang-ky',[NguoiDungController::class, 'create'])->name('form-dang-ky')->middleware('guest');
 Route::post('dang-ky',[NguoiDungController::class, 'store'])->name('dang-ky')->middleware('guest');
@@ -44,5 +45,7 @@ Route::post('dang-ky',[NguoiDungController::class, 'store'])->name('dang-ky')->m
 /// admin
 Route::get('admin', [AdminController::class, 'dstaikhoan'],)->name('dstaikhoan');
 Route::get('baidang', [AdminController::class, 'dsbaidang'],)->name('dsbaidang');
+Route::get('baidangduyet', [AdminController::class, 'dsbaidangduyet'],)->name('dsbaidangduyet');
 Route::post('admin/xoa/{id}', [AdminController::class, 'destroy'],)->name('xoataikhoan');
 Route::post('admin/xoabaidang/{id}', [AdminController::class, 'xoabaidang'],)->name('xoabaidang');
+Route::post('admin/duyetbaidang/{id}', [AdminController::class, 'duyetbaidang'],)->name('duyetbaidang');

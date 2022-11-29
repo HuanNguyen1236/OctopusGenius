@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html class="no-js">
     
-
     <head>
         <title>Admin Home Page</title>
         <!-- Bootstrap -->
@@ -41,7 +40,7 @@
     </head>
     
     <body>
-        <!-- @yield('content') -->
+        @yield('content')
 
 
 
@@ -69,10 +68,10 @@
                         <li >
                             <a href="{{route('dstaikhoan')}}"><i class="icon-chevron-right"></i> Tài khoản</a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="{{route('dsbaidangduyet')}}"><i class="icon-chevron-right"></i> Bài đăng cần duyệt</a>
                         </li>
-                        <li class="active">
+                        <li>
                              <a href="{{route('dsbaidang')}}"><i class="icon-chevron-right"></i> Bài đăng</a>
                         </li>
                         <li>
@@ -82,41 +81,20 @@
                             <a href="form.html"><i class="icon-chevron-right"></i>Báo cáo</a>
                         </li>
                         <li>
-                            <a href="tables.html"><i class="icon-chevron-right"></i> Tables</a>
+                            <a href="tables.html"><i class="icon-chevron-right"></i>Trang người dùng</a>
                         </li>
-                        <li>
-                            <a href="buttons.html"><i class="icon-chevron-right"></i> Buttons & Icons</a>
-                        </li>
-                        <li>
-                            <a href="editors.html"><i class="icon-chevron-right"></i> WYSIWYG Editors</a>
-                        </li>
-                        <li>
-                            <a href="interface.html"><i class="icon-chevron-right"></i> UI & Interface</a>
-                        </li>
+                        
                         
                     </ul>
                 </div>
                 <!--/span-->
-                
-
                 <!-- TÀI KHOẢN ----------------------------------------------------------------------->
                 <div class="span9" id="content">
-                    <!-- block -->
-                    <div >
+                <div>
                             <div >
-                                <h1>Danh sách bài đăng</h1>
+                                <h1>Danh sách bài đăng cần duyệt</h1>
                             </div>
-
-                            <div >
-                                <div >
-                                   <div  >
-                                      <div class="btn-group">
-                                         <a href="#"><button class="btn btn-success">Thêm bài đăng <i class="icon-plus icon-white"></i></button></a>
-                                      </div>
-                                      
-                                   </div>
-                                    
-                                    <table cellpadding="0" cellspacing="0" ,border="0" class="table table-striped table-bordered" id="example2">
+                            <table cellpadding="0" cellspacing="0" ,border="0" class="table table-striped table-bordered" id="example2">
                                     <thead>
                                             <tr>
                                                 <th>ID</th>
@@ -142,27 +120,19 @@
                                                 <td>{{$bd->loaiDoVat->loai_do_vat}}</td>
                                                 <td>{{$bd->trang_thai}}</td>
                                                 <td>
-                                                    <form action="{{route('xoabaidang', $bd->id)}}" method="POST">
+                                                    <form action="{{route('duyetbaidang', $bd->id)}}" method="POST">
                                                         @csrf
-                                                        <button type="submit" class="btn btn-danger"> Xóa</button>
+                                                        <button type="submit" class="btn btn-info">Duyệt</button>
                                                     </form>
-                                               
                                                 </td>
                                             </tr>
                                         @endforeach
                                         </tbody>
                                     </table>
-                                </div>
-                            </div>
-
-
                         </div>
-                        <!-- /block -->
-                    
+                </div>        
                 </div>
-                </div>
-            </div>
-            
+            </div>           
         </div>
         <!--/.fluid-container-->
         <script src="vendorsadmin/jquery-1.9.1.min.js"></script>

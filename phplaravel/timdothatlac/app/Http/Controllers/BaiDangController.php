@@ -59,9 +59,9 @@ class BaiDangController extends Controller
             $file-> move(public_path('public/Image'), $filename);
             $data['hinh_anh']= $filename;
             $data['tieu_de']= $request->name;
-            $data['id_loai_bai_dang']= $request->loai_bai_post;
-            //$data['id_loai_do_vat']= $request->loai_do_vat;
-            $data['id_tai_khoan']= Auth::id();
+            $data['loai_bai_dang_id']= $request->loai_bai_post;
+            $data['loai_do_vat_id']= $request->loai_do_vat;
+            $data['tai_khoan_id']= Auth::id();
             $data['dia_chi']= $request->address;
             $data['mo_ta']= $request->mo_ta;
         }

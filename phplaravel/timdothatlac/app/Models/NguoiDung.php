@@ -26,4 +26,6 @@ class NguoiDung extends Authenticatable
     public function getPasswordAttribute(){
         return $this->mat_khau;
     }
+
+   
 }
