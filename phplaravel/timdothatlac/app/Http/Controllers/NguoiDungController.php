@@ -37,6 +37,13 @@ class NguoiDungController extends Controller
         $listDV=LoaiDoVat::all();
         return view('nguoi-dung.welcome',['listPost'=>$listPost,'nguoiDung'=>$nguoiDung,'listDM'=>$listDM, 'listDV'=>$listDV]);
     }
+    public function trangchu(){
+        $nguoiDung=NguoiDung::where('id',$id)->first();
+        $listPost=BaiDang::orderBy('updated_at','DESC')->where('trang_thai',1)->get();
+        $listDM=LoaiBaiDang::all();
+        $listDV=LoaiDoVat::all();
+        return view('nguoi-dung.welcome',['listPost'=>$listPost,'nguoiDung'=>$nguoiDung,'listDM'=>$listDM, 'listDV'=>$listDV]);
+    }
     public function admin()
     {
         $id=Auth::id();
@@ -81,6 +88,7 @@ class NguoiDungController extends Controller
             $data['dia_chi']= $request->address;
             $data['ngay_sinh']= $request->birthday;
         $data->save();
+        return redirect()->route("dang-nhap");
     }
 
     /**
@@ -94,7 +102,6 @@ class NguoiDungController extends Controller
         $idnd=Auth::id();
         $nguoiDung=NguoiDung::where('id',$id)->first();
         $listPost=BaiDang::where('tai_khoan_id',$idnd)->get();
-        
         return view('nguoi-dung.profile',['nguoiDung'=>$nguoiDung],['listPost'=>$listPost]);
     }
 
@@ -141,24 +148,44 @@ class NguoiDungController extends Controller
 
     public function login()
     {
-        return view('nguoi-dung.login');
+        return view('nguoi-dung.home');
     }
     public function xuLylogin(Request $request)
     { 
-        $xuly=$request->only('ten_dang_nhap','password');
-        if(Auth::attempt($xuly)){
-            $id=Auth::id();
-            $user = NguoiDung::find($id);
-            if( $user->quyen=='admin'){
-            return redirect()->route('trang-chu-admin');
+        $admin=[
+            'ten_dang_nhap'=>$request->ten_dang_nhap,
+            'password'=>$request->password,
+            'quyen'=>"adm",
+        ];
+        $nd=[
+            'ten_dang_nhap'=>$request->ten_dang_nhap,
+            'password'=>$request->password,
+            'quyen'=>"user",
+        ];
+        if(Auth::attempt($nd)){
+            return redirect()->route('trang-chu');
+        } 
+        else
+            
+            if(Auth::attempt($admin)){
+                
+                return redirect()->route('dstaikhoan');
             }
-            else return redirect()->route('trang-chu');
-        }
         return redirect()->back()->with("error","Đăng nhập không thành công");
+        // $xuly=$request->only('ten_dang_nhap','password');
+        // if(Auth::attempt($xuly)){
+        //     $id=Auth::id();
+        //     $user = NguoiDung::find($id);
+        //     if( $user->quyen=='adm'){
+        //     return redirect()->route('trang-chu-admin');
+        //     }
+        //     else return redirect()->route('trang-chu');
+        // }
+        // return redirect()->back()->with("error","Đăng nhập không thành công");
     } 
     public function logOut()
     {
         Auth::logOut();
-        return redirect()->route('dang-xuat');
+        return redirect()->route('dang-nhap');
     }
 }

@@ -121,28 +121,28 @@
               @csrf
               <div class="row">
                 <div class="form-group mt-3">
-                  <label for="name">Họ và tên</label>
+                  <label for="name"><h3>Họ và tên</h3></label>
                   <input type="text" name="name" value="{{$nguoiDung->ten_dang_nhap}}"class="form-control" id="name" required>
                 </div>
                 
               <div class="form-group mt-3">
-                <label for="name">Địa chỉ</label>
+                <label for="name"><h3>Địa chỉ</h3></label>
                 <input type="text" class="form-control" value="{{$nguoiDung->dia_chi}}" name="address" id="subject" required>
               </div>
              
               
               <div class="form-group mt-3">
-                <label for="name">Email</label>
+                <label for="name"><h3>Email</h3></label>
                 <input type="text" class="form-control" value="{{$nguoiDung->email}}" name="email" rows="10" required></input>
               </div>
               <div class="form-group mt-3">
              
-              <label for="name">sdt</label>
+              <label for="name"><h3>Số điện thoại</h3></label>
              <input type="text" name="sdt" value="{{$nguoiDung->sdt}}" id = "fileSelect" rows="10" required>
 
              </div>
              <div>
-             <label for="name">Ngày sinh</label>
+             <label for="name"><h3>Ngày sinh</h3></label>
              <input type="date" class="input-group mb-3" value="{{$nguoiDung->ngay_sinh}}" name="birthday">
               </div>
               <div class="my-3">
@@ -168,7 +168,7 @@
         @foreach($listPost as $post)
           <div class="col-lg-4 col-md-6 portfolio-item filter-{{$post->loai_bai_post}}">
             <div class="portfolio-wrap">
-            <img src="{{ asset('public/Image/'.$post->hinh_anh)  }}">
+            <img src="{{ asset('public/Image/'.$post->hinh_anh)  }} " width=100%  height=250px>
               <div class="portfolio-links">
                 <a href="{{ asset('public/Image/'.$post->hinh_anh)  }}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="{{$post->tieu_de}}"><i class="bi bi-plus"></i></a>
                 <a href="{{ route('chi-tiet-bai-dang',['id' => $post->id]) }}" title="More Details"><i class="bi bi-link"></i></a>
@@ -189,74 +189,7 @@
     </section>
   </main><!-- End #main -->
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
-
-    
-
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>Ninestars</h3>
-            <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br><br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
-            </p>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Services</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Social Networks</h4>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
-            <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="container py-4">
-      <div class="copyright">
-        &copy; Copyright <strong><span>Ninestars</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
-    </div>
-  </footer><!-- End Footer -->
+  
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 

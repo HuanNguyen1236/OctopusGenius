@@ -123,9 +123,7 @@
           <div class="col-lg-12">
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active">Tất cả</li>
-              <!-- @foreach($listDV as $dv)
-              <li>{{$dv->loai_do_vat}}</li>
-              @endforeach -->
+              
               <li data-filter=".filter-1">Căn cước công dân/Chứng minh nhân dân</li>
               <li data-filter=".filter-2">Giấp phép lái xe</li>
               <li data-filter=".filter-3">Bóp hoặc điện thoại</li>
@@ -164,11 +162,13 @@
               @csrf
               <div class="form-group mt-3">
                 <label for="name">Loại bài đăng</label>              
+                <div>
                 <select id="subject" name="loai_bai_post">
                 @foreach($listDM as $dm)
                 <option value="{{$dm->id}}">{{$dm->loai_bai_dang}}</option>
                 @endforeach
-                </select>                
+                </select>   
+                </div>             
               </div>
               <div class="row">
                 <div class="form-group mt-3">
@@ -181,11 +181,13 @@
               </div>            
               <div class="form-group mt-3">
                 <label for="name">Loại đồ vật</label>               
+                <div>
                 <select id="subject" name="loai_do_vat">
                 @foreach($listDV as $dv)
                 <option value="{{$dv->id}}">{{$dv->loai_do_vat}}</option>
                 @endforeach
-                </select>               
+                </select>    
+                </div>           
               </div>
               <div class="form-group mt-3">
                 <label for="name">Mô tả</label>
@@ -213,10 +215,10 @@
           <h2>Tìm ngay</h2>
           <p>Bạn cần tìm gì đó ? Đã có Octopus Genius</p>
         </div>
-        <div class="row">
-          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-            <form action="" > 
-              <div class="form-group mt-3">
+        <div class="row" >
+          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200" >
+            <form action=""  style="margin:0 auto;"> 
+              <div class="form-group mt-3" >
                 <input type="text" class="form-control" name="search" id="subject" placeholder="Tìm kiếm" required>
               </div>
               <div class="text-center"><button type="submit">Tìm kiếm</button></div>
@@ -229,42 +231,7 @@
   </main>
   <!-- End #main -->
   <!-- ======= Footer ======= -->
-  <footer id="footer">
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>Octopus Genius</h3>
-            <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br><br> 
-            </p>
-          </div>
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Liên hệ</h4>
-            <ul>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
-            </ul>
-          </div>
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Mạng xã hội của chúng tôi</h4>
-            <!-- <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p> -->
-            <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </footer><!-- End Footer -->
+  <!-- End Footer -->
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   <!-- Vendor JS Files -->
   <script src="vendor/aos/aos.js"></script>

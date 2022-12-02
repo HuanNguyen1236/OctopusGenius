@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NguoiDungController;
 use App\Http\Controllers\BaiDangController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,8 +17,11 @@ use App\Http\Controllers\AdminController;
 */
 
 Route::get('/', function () {
-    return view('nguoi-dung.login');
+    return view('nguoi-dung.home');
 });
+// Route::get("/",[HomeController::class, 'checkUserType'])->name('dnpq');
+
+
 Route::controller(BaiDangController::class)->group(function(){
     //Route::get('post', 'index')->name('trang-chu');
     Route::post('/upload-image', 'store')->name('them-moi-bai-dang')->middleware('auth');
@@ -25,7 +29,7 @@ Route::controller(BaiDangController::class)->group(function(){
     Route::post('/cap-nhat/{id}','update')->name('xl-cap-nhat-bai-dang')->middleware('auth');
 });
 Route::get('post',[NguoiDungController::class, 'index'])->name('trang-chu');
-Route::get('admin',[NguoiDungController::class, 'admin'])->name('admin');
+Route::get('admin',[NguoiDungController::class, 'admin'])->name('admin')->middleware('auth');
 
 
 //Route::get('post',[UserController::class, 'index'])->name('trang-chu')->middleware('auth');
@@ -42,10 +46,20 @@ Route::get('dang-ky',[NguoiDungController::class, 'create'])->name('form-dang-ky
 Route::post('dang-ky',[NguoiDungController::class, 'store'])->name('dang-ky')->middleware('guest');
 
 
+//dangnhappahnquyen
+Route::get('/admin/homeadmin',function(){
+    return view("admin.index");
+})->name("homeadmin");
+
+Route::get('/nguoidung/homenguoidung',function(){
+    return view("nguoi-dung.welcome");
+})->name("trangchunguoidung");
+
+
 /// admin
-Route::get('admin', [AdminController::class, 'dstaikhoan'],)->name('dstaikhoan');
-Route::get('baidang', [AdminController::class, 'dsbaidang'],)->name('dsbaidang');
-Route::get('baidangduyet', [AdminController::class, 'dsbaidangduyet'],)->name('dsbaidangduyet');
-Route::post('admin/xoa/{id}', [AdminController::class, 'destroy'],)->name('xoataikhoan');
-Route::post('admin/xoabaidang/{id}', [AdminController::class, 'xoabaidang'],)->name('xoabaidang');
-Route::post('admin/duyetbaidang/{id}', [AdminController::class, 'duyetbaidang'],)->name('duyetbaidang');
+Route::get('admin', [AdminController::class, 'dstaikhoan'],)->name('dstaikhoan')->middleware('auth');
+Route::get('baidang', [AdminController::class, 'dsbaidang'],)->name('dsbaidang')->middleware('auth');
+Route::get('baidangduyet', [AdminController::class, 'dsbaidangduyet'],)->name('dsbaidangduyet')->middleware('auth');
+Route::post('admin/xoa/{id}', [AdminController::class, 'destroy'],)->name('xoataikhoan')->middleware('auth');
+Route::post('admin/xoabaidang/{id}', [AdminController::class, 'xoabaidang'],)->name('xoabaidang')->middleware('auth');
+Route::post('admin/duyetbaidang/{id}', [AdminController::class, 'duyetbaidang'],)->name('duyetbaidang')->middleware('auth');

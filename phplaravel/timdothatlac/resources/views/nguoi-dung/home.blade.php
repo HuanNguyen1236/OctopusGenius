@@ -71,51 +71,33 @@
              Octopus genius</h1>
         <style>
             .content{
-            padding-top: 2% ;
+            padding-top: 20% ;
             }
             #dk{
                 padding-left:40px;
             }
         </style>
-        <form action="{{route('dang-ky')}}" method="post">
-        @csrf
-            <table class="content">
-                <tr>
-                    <td>Tên đăng nhập:    </td>
-                    <td><input type="text" class="input-group mb-3" name="username"></td>
-                </tr>
-                <hr>
-                <tr>
-                    <td>Mật khẩu:    </td>
-                    <td><input type="password" class="input-group mb-3" name="password"></td>
-                  
-                </tr>
-                <tr>
-                    <td>Xác nhận mật khẩu:    </td>
-                    <td><input type="password" class="input-group mb-3" name="confirm_password"></td>
-                </tr>
-                <tr>
-                    <td>Email:    </td>
-                    <td><input type="email" class="input-group mb-3" name="email"></td>
-                </tr>
-                <tr>
-                    <td>SĐT:   </td>
-                    <td><input type="text" class="input-group mb-3" name="sdt"></td>
-                </tr>
-                <tr>
-                    <td>Birthday:    </td>
-                    <td><input type="date" class="input-group mb-3" name="birthday"></td>
-                </tr>
-                <tr>
-                    <td>Address:    </td>
-                    <td><input type="text" class="input-group mb-3" name="address"></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><button type="submit" class="btn btn-info">Đăng ký</button></td>
-                </tr>
-            </table>
-        </form>                              
+                                            <form  action="{{route('xl-dang-nhap')}}" method="post" class="form-horizontal"style="margin:0 auto;" >                                                 
+                                                @csrf
+                                            <div class="control-group">
+                                                   <label class="control-label" for="focusedInput"  >Tên đăng nhập</label>
+                                                   <div class="controls">
+                                                     <input class="input-xlarge focused" id="focusedInput" type="text" name="ten_dang_nhap" value="">
+                                                   </div>
+                                                 </div>
+                                                 <div class="control-group">
+                                                   <label class="control-label" for="focusedInput">Mật khẩu</label>
+                                                   <div class="controls">
+                                                     <input class="input-xlarge focused" id="focusedInput" type="password" class="input-group mb-3" name="password">
+                                                   </div>
+                                                 </div>
+                                                 <div>
+                                                    <br>
+                                                 </div>
+                                                 <button type="submit" class="btn btn-warning">Đăng nhập</button>
+                                                 <a id="dk" class="btn btn-info" href="{{route('form-dang-ky')}}">Đăng ký</a>
+                                                 
+                                             </form>                                     
         </div>
     </div>
     </div>

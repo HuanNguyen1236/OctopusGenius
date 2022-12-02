@@ -82,17 +82,9 @@
                             <a href="form.html"><i class="icon-chevron-right"></i>Báo cáo</a>
                         </li>
                         <li>
-                            <a href="tables.html"><i class="icon-chevron-right"></i> Tables</a>
+                            <a href="{{ route('trang-chu')}}"><i class="icon-chevron-right"></i>Trang người dùng</a>
                         </li>
-                        <li>
-                            <a href="buttons.html"><i class="icon-chevron-right"></i> Buttons & Icons</a>
-                        </li>
-                        <li>
-                            <a href="editors.html"><i class="icon-chevron-right"></i> WYSIWYG Editors</a>
-                        </li>
-                        <li>
-                            <a href="interface.html"><i class="icon-chevron-right"></i> UI & Interface</a>
-                        </li>
+                        
                         
                     </ul>
                 </div>
@@ -106,14 +98,15 @@
                             <div >
                                 <h1>Danh sách bài đăng</h1>
                             </div>
-
                             <div >
                                 <div >
                                    <div  >
                                       <div class="btn-group">
                                          <a href="#"><button class="btn btn-success">Thêm bài đăng <i class="icon-plus icon-white"></i></button></a>
                                       </div>
-                                      
+                                      <div>
+                                <hr>
+                            </div> 
                                    </div>
                                     
                                     <table cellpadding="0" cellspacing="0" ,border="0" class="table table-striped table-bordered" id="example2">

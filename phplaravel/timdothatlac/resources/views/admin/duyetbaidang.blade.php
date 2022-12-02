@@ -81,7 +81,7 @@
                             <a href="form.html"><i class="icon-chevron-right"></i>Báo cáo</a>
                         </li>
                         <li>
-                            <a href="tables.html"><i class="icon-chevron-right"></i>Trang người dùng</a>
+                            <a href="{{ route('trang-chu')}}"><i class="icon-chevron-right"></i>Trang người dùng</a>
                         </li>
                         
                         
@@ -93,6 +93,9 @@
                 <div>
                             <div >
                                 <h1>Danh sách bài đăng cần duyệt</h1>
+                            </div>
+                            <div>
+                                <hr>
                             </div>
                             <table cellpadding="0" cellspacing="0" ,border="0" class="table table-striped table-bordered" id="example2">
                                     <thead>

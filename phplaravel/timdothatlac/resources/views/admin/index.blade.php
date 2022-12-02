@@ -41,10 +41,6 @@
     
     <body>
         @yield('content')
-
-
-
-
         <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container-fluid">
@@ -54,8 +50,6 @@
                     </a>
                     <a class="brand" href="#">Ten dang nhap</a>
                     <div class="nav-collapse collapse">
-                        
-                        
                     </div>
                     <!--/.nav-collapse -->
                 </div>
@@ -75,24 +69,14 @@
                              <a href="{{route('dsbaidang')}}"><i class="icon-chevron-right"></i> Bài đăng</a>
                         </li>
                         <li>
-                            <a href="stats.html"><i class="icon-chevron-right"></i> Tài khoản  quản lý</a>
+                            <a href="stats.html"><i class="icon-chevron-right"></i> Tài khoản quản lý</a>
                         </li>
                         <li>
                             <a href="form.html"><i class="icon-chevron-right"></i>Báo cáo</a>
                         </li>
                         <li>
-                            <a href="tables.html"><i class="icon-chevron-right"></i> Tables</a>
+                            <a href="{{ route('trang-chu')}}"><i class="icon-chevron-right"></i>Trang người dùng</a>
                         </li>
-                        <li>
-                            <a href="buttons.html"><i class="icon-chevron-right"></i> Buttons & Icons</a>
-                        </li>
-                        <li>
-                            <a href="editors.html"><i class="icon-chevron-right"></i> WYSIWYG Editors</a>
-                        </li>
-                        <li>
-                            <a href="interface.html"><i class="icon-chevron-right"></i> UI & Interface</a>
-                        </li>
-                        
                     </ul>
                 </div>
                 <!--/span-->
@@ -100,24 +84,20 @@
 
                 <!-- TÀI KHOẢN ----------------------------------------------------------------------->
                 <div class="span9" id="content">
-                    <div class="row-fluid">
-                    <div class="span9" id="content">
-                     <div class="row-fluid">
-                        <!-- block -->
-                        <div class="block">
-                            <div class="navbar navbar-inner block-header">
-                                <div class="muted pull-left">Danh sách tài khoản</div>
+                <div >
+                            <div >
+                               <h1> Danh sách tài khoản  người dùng</h1>
                             </div>
-
-                            <div class="block-content collapse in">
-                                <div class="span12">
-                                   <div class="table-toolbar">
-                                      <div class="btn-group">
+                            <div >
+                                <div >
+                                   <div >
+                                      <div >
                                          <a href="#"><button class="btn btn-success">Thêm tài khoản <i class="icon-plus icon-white"></i></button></a>
-                                      </div>
-                                      
+                                      </div>                                     
                                    </div>
-                                    
+                                   <div>
+                                    <hr>
+                                   </div>                                   
                                     <table cellpadding="0" cellspacing="0" ,border="0" class="table table-striped table-bordered" id="example2">
                                         <thead>
                                             <tr>
@@ -143,8 +123,7 @@
                                                     <form action="{{route('xoataikhoan', $nd->id)}}" method="POST">
                                                         @csrf
                                                         <button type="submit" class="btn btn-danger"> Xóa</button>
-                                                    </form>
-                                               
+                                                    </form>                                              
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -152,20 +131,10 @@
                                     </table>
                                 </div>
                             </div>
-
-
                         </div>
-                        <!-- /block -->
-                    </div>
+                </div>     
                 </div>
-                    
-                    
-                </div>
-            </div>
-            <hr>
-            <footer>
-                <p>&copy; </p>
-            </footer>
+            </div> 
         </div>
         <!--/.fluid-container-->
         <script src="vendorsadmin/jquery-1.9.1.min.js"></script>
@@ -179,5 +148,4 @@
         });
         </script>
     </body>
-
 </html>

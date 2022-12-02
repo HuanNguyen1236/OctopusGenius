@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\BaiDang;
 use App\Models\LoaiBaiDang;
 use App\Models\NguoiDung;
+use App\Models\Admin;
+use App\Http\Controllers\Auth;
 
 class AdminController extends Controller
 {
@@ -44,7 +46,22 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        $data=new NguoiDung;
+        if($request->file('anh_dai_dien')){
+            $file= $request->file('anh_dai_dien');
+            $filename= date('YmdHi').$file->getClientOriginalName();
+            $file-> move(public_path('public/Image'), $filename);
+            $data['anh_dai_dien']= $filename;
+        }
+        
+            $data['email']= $request->email;
+            $data['sdt']= $request->sdt;
+            $data['ten_dang_nhap']= $request->username;
+            $data['mat_khau']= Hash::make($request->password);
+            $data['dia_chi']= $request->address;
+            $data['ngay_sinh']= $request->birthday;
+        $data->save();
+       ;
     }
 
     /**
@@ -55,7 +72,7 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        
+       
     }
 
     /**
