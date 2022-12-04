@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Admin extends Migration
+class TkAdmin extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class Admin extends Migration
      */
     public function up()
     {
-        Schema::create('tai_khoan', function (Blueprint $table) {
+        Schema::create('tk_admin', function (Blueprint $table) {
             $table->id();
             $table->string('email');
             $table->string('sdt');
@@ -22,8 +22,7 @@ class Admin extends Migration
             $table->date('ngay_sinh');
             $table->string('dia_chi');
             $table->string('trang_thai')->default(1);
-            $table->string('quyen')->default('admin');
-            $table->string('loai_admin_id');
+            $table->string('quyen')->default('adm');
             $table->string('anh_dai_dien')->nullable();
             $table->timestamps();
             $table->softDeletes();
@@ -37,6 +36,6 @@ class Admin extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('tk_admin');
     }
 }

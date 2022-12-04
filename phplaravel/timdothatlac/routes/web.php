@@ -19,8 +19,6 @@ use App\Http\Controllers\HomeController;
 Route::get('/', function () {
     return view('nguoi-dung.home');
 });
-// Route::get("/",[HomeController::class, 'checkUserType'])->name('dnpq');
-
 
 Route::controller(BaiDangController::class)->group(function(){
     //Route::get('post', 'index')->name('trang-chu');
@@ -30,12 +28,6 @@ Route::controller(BaiDangController::class)->group(function(){
 });
 Route::get('post',[NguoiDungController::class, 'index'])->name('trang-chu');
 Route::get('admin',[NguoiDungController::class, 'admin'])->name('admin')->middleware('auth');
-
-
-//Route::get('post',[UserController::class, 'index'])->name('trang-chu')->middleware('auth');
-//Route::get('post',[PostController::class, 'create'])->name('form-them-moi-bai-dang');
-//Route::post('post',[PostController::class, 'store'])->name('them-moi-bai-dang');
-
 Route::get('/nguoi-dung/{id}',[NguoiDungController::class,'show'])->name('thong-tin-nguoi-dung')->middleware('auth');
 Route::get('dang-nhap',[NguoiDungController::class, 'login'])->name('dang-nhap')->middleware('guest');
 Route::post('dang-nhap',[NguoiDungController::class, 'xuLylogin'])->name('xl-dang-nhap')->middleware('guest');
@@ -44,22 +36,34 @@ Route::post('cap-nhat-nguoi-dung/{id}',[NguoiDungController::class,'update'])->n
 
 Route::get('dang-ky',[NguoiDungController::class, 'create'])->name('form-dang-ky')->middleware('guest');
 Route::post('dang-ky',[NguoiDungController::class, 'store'])->name('dang-ky')->middleware('guest');
-
-
 //dangnhappahnquyen
-Route::get('/admin/homeadmin',function(){
-    return view("admin.index");
-})->name("homeadmin");
+// Route::get('/admin/homeadmin',function(){
+//     return view("admin.index");
+// })->name("homeadmin");
 
-Route::get('/nguoidung/homenguoidung',function(){
-    return view("nguoi-dung.welcome");
-})->name("trangchunguoidung");
+// Route::get('/nguoidung/homenguoidung',function(){
+//     return view("nguoi-dung.welcome");
+// })->name("trangchunguoidung");
 
-
-/// admin
-Route::get('admin', [AdminController::class, 'dstaikhoan'],)->name('dstaikhoan')->middleware('auth');
+///danh sach bai dang
+Route::get('taikhoan', [AdminController::class, 'dstaikhoan'],)->name('dstaikhoan')->middleware('auth');
 Route::get('baidang', [AdminController::class, 'dsbaidang'],)->name('dsbaidang')->middleware('auth');
+//danh sach admin
+Route::get('taikhoanadmin', [AdminController::class, 'dstaikhoanadmin'],)->name('dstaikhoanadmin')->middleware('auth');
+//xoa va duyet bai  dang
 Route::get('baidangduyet', [AdminController::class, 'dsbaidangduyet'],)->name('dsbaidangduyet')->middleware('auth');
-Route::post('admin/xoa/{id}', [AdminController::class, 'destroy'],)->name('xoataikhoan')->middleware('auth');
 Route::post('admin/xoabaidang/{id}', [AdminController::class, 'xoabaidang'],)->name('xoabaidang')->middleware('auth');
 Route::post('admin/duyetbaidang/{id}', [AdminController::class, 'duyetbaidang'],)->name('duyetbaidang')->middleware('auth');
+//xoa tai khoan
+Route::post('admin/xoa/{id}', [AdminController::class, 'destroy'],)->name('xoataikhoan')->middleware('auth');
+//thong tin admin
+Route::get('/admin/{id}',[AdminController::class,'show'])->name('thongtinadmin')->middleware('auth');
+//them admin
+Route::post('admin/themadmin/{id}', [AdminController::class, 'themadmin'],)->name('themadmin')->middleware('auth');
+//xoa quyen admin
+Route::post('admin/xoaadmin/{id}', [AdminController::class, 'xoaadmin'],)->name('xoaadmin')->middleware('auth');
+//admin them bai dang
+Route::get('thembaidang',[AdminController::class, 'thembaidang'])->name('thembaidang')->middleware('auth');
+Route::post('thembaidang',[AdminController::class, 'thembaidang'])->name('thembaidang')->middleware('auth');
+// Route::get('themadmin',[AdminController::class,'create'])->name('them-admin')->middleware('auth');
+// Route::post('xlthemadmin',[AdminController::class, 'store'])->name('xl-themadmin')->middleware('auth');

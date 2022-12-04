@@ -40,26 +40,34 @@
     </head>
     
     <body>
-        @yield('content')
-        <div class="navbar navbar-fixed-top">
+    <div class="navbar navbar-fixed-top">
             <div class="navbar-inner">
                 <div class="container-fluid">
                     <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span>
                      <span class="icon-bar"></span>
                      <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="#">Ten dang nhap</a>
+                    <a class="brand" href="#"> {{$nd->ten_dang_nhap}}</a>
                     <div class="nav-collapse collapse">
+                        <ul class="nav pull-right">
+                            <li class="dropdown">
+                            <a class="btn btn" href="{{ route('dang-xuat') }}">Đăng xuất</a></li> 
+                                
+                            </li>
+                        </ul>
+                        
                     </div>
                     <!--/.nav-collapse -->
                 </div>
             </div>
         </div>
+        
+        
         <div class="container-fluid">
             <div class="row-fluid">
                 <div class="span3" id="sidebar">
                     <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
-                        <li class="active">
+                        <li class="active" >
                             <a href="{{route('dstaikhoan')}}"><i class="icon-chevron-right"></i> Tài khoản</a>
                         </li>
                         <li>
@@ -68,8 +76,8 @@
                         <li>
                              <a href="{{route('dsbaidang')}}"><i class="icon-chevron-right"></i> Bài đăng</a>
                         </li>
-                        <li>
-                            <a href="stats.html"><i class="icon-chevron-right"></i> Tài khoản quản lý</a>
+                        <li > 
+                            <a href="{{route('dstaikhoanadmin')}}"><i class="icon-chevron-right"></i>Tài khoản quản lý</a>
                         </li>
                         <li>
                             <a href="form.html"><i class="icon-chevron-right"></i>Báo cáo</a>
@@ -81,20 +89,18 @@
                 </div>
                 <!--/span-->
                 
-
                 <!-- TÀI KHOẢN ----------------------------------------------------------------------->
+                @yield('content')
                 <div class="span9" id="content">
                 <div >
                             <div >
                                <h1> Danh sách tài khoản  người dùng</h1>
                             </div>
+                           
                             <div >
+
                                 <div >
-                                   <div >
-                                      <div >
-                                         <a href="#"><button class="btn btn-success">Thêm tài khoản <i class="icon-plus icon-white"></i></button></a>
-                                      </div>                                     
-                                   </div>
+                                   
                                    <div>
                                     <hr>
                                    </div>                                   
@@ -120,10 +126,15 @@
                                                 <td>{{$nd->ngay_sinh}}</td>
                                                 <td>{{$nd->trang_thai}}</td>
                                                 <td>
+                                                     <form action="{{route('themadmin', $nd->id)}}" method="POST">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-info"> Thêm admin</button>
+                                                    </form>
                                                     <form action="{{route('xoataikhoan', $nd->id)}}" method="POST">
                                                         @csrf
                                                         <button type="submit" class="btn btn-danger"> Xóa</button>
-                                                    </form>                                              
+                                                    </form> 
+                                                                                                 
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -135,6 +146,7 @@
                 </div>     
                 </div>
             </div> 
+                
         </div>
         <!--/.fluid-container-->
         <script src="vendorsadmin/jquery-1.9.1.min.js"></script>

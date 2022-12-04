@@ -33,7 +33,7 @@
           @else 
           <div class="logo">
         <h1 class="text-light"><a href="{{ route('thong-tin-nguoi-dung',['id' => Auth::id()]) }}"><span></span>{{ $nguoiDung->ten_dang_nhap}}</a></h1>
-          @endif       
+          @endif      
       </div>
       <nav id="navbar" class="navbar">
         <ul>
@@ -122,8 +122,7 @@
         <div class="row" data-aos="fade-up" data-aos-delay="100">
           <div class="col-lg-12">
             <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">Tất cả</li>
-              
+              <li data-filter="*" class="filter-active">Tất cả</li>              
               <li data-filter=".filter-1">Căn cước công dân/Chứng minh nhân dân</li>
               <li data-filter=".filter-2">Giấp phép lái xe</li>
               <li data-filter=".filter-3">Bóp hoặc điện thoại</li>
@@ -156,7 +155,7 @@
           <h2>Đăng tin ngay</h2>
           <p>Bạn cần tìm gì đó ? Đã có Octopus Genius</p>
         </div>
-        <div  >
+        <div >
           <div class="col-lg-7"style="margin:0 auto;" data-aos="fade-up" data-aos-delay="">
             <form action="{{route('them-moi-bai-dang')}}" method="post" role="form" class="php-email-form" enctype = "multipart/form-data">
               @csrf

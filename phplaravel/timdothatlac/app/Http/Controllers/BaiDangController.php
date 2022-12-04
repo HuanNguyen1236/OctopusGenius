@@ -66,7 +66,6 @@ class BaiDangController extends Controller
             $data['mo_ta']= $request->mo_ta;
         }
         $data->save();
-        
     }
 
     /**

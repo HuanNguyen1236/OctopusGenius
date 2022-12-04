@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Admin extends Model
 {
     use HasFactory;
-    protected $table = 'tai_khoan_admin';
+    protected $table = 'tk_admin';
     protected $fillable=[
         'email',
         'sdt',
@@ -18,10 +18,12 @@ class Admin extends Model
         'dia_chi',
         'trang_thai',    
         'quyen',
-        'loai_admin_id',
         'anh_dai_dien',
     ];
     public function getPasswordAttribute(){
         return $this->mat_khau;
+    }
+    public function loaiAdmin(){
+        return $this->belongsTo(loaiAdmin::class);
     }
 }

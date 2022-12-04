@@ -53,9 +53,17 @@
                      <span class="icon-bar"></span>
                      <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="#">Ten dang nhap</a>
+                    <a class="brand" href="#">{{$nd->ten_dang_nhap}}</a>
                     <div class="nav-collapse collapse">
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right">
+                            <li class="dropdown">
+                            <a class="btn btn" href="{{ route('dang-xuat') }}">Đăng xuất</a></li> 
+                                
+                            </li>
+                        </ul>
                         
+                    </div>  
                         
                     </div>
                     <!--/.nav-collapse -->
@@ -72,11 +80,11 @@
                         <li>
                             <a href="{{route('dsbaidangduyet')}}"><i class="icon-chevron-right"></i> Bài đăng cần duyệt</a>
                         </li>
-                        <li class="active">
+                        <li class="active" >
                              <a href="{{route('dsbaidang')}}"><i class="icon-chevron-right"></i> Bài đăng</a>
                         </li>
-                        <li>
-                            <a href="stats.html"><i class="icon-chevron-right"></i> Tài khoản  quản lý</a>
+                        <li > 
+                            <a href="{{route('dstaikhoanadmin')}}"><i class="icon-chevron-right"></i> Tài khoản quản lý</a>
                         </li>
                         <li>
                             <a href="form.html"><i class="icon-chevron-right"></i>Báo cáo</a>
@@ -102,7 +110,7 @@
                                 <div >
                                    <div  >
                                       <div class="btn-group">
-                                         <a href="#"><button class="btn btn-success">Thêm bài đăng <i class="icon-plus icon-white"></i></button></a>
+                                         <a href="{{route('thembaidang')}}" class='btn btn-success'>  Thêm bài đăng <i class="icon-plus icon-white"></i></a>
                                       </div>
                                       <div>
                                 <hr>

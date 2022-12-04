@@ -19,17 +19,6 @@ class NguoiDungController extends Controller
      */
     public function index()
     {
-        // if(request()->search){
-        //     $search=request()->search;
-        //     $listPost=Post::all()->where('NguoiDungname ','like','%'.$search.'%');
-        //     return view('nguoi-dung.welcome',['listPost'=>$listPost]);
-        // }
-        // else{
-        // $id=Auth::id();
-        // $NguoiDung=NguoiDung::where('id',$id)->first();
-        // $listPost=Post::all();
-        // return view('nguoi-dung.welcome',['listPost'=>$listPost,'NguoiDung'=>$NguoiDung]);
-        // }
         $id=Auth::id();
         $nguoiDung=NguoiDung::where('id',$id)->first();
         $listPost=BaiDang::orderBy('updated_at','DESC')->where('trang_thai',1)->get();
@@ -78,9 +67,7 @@ class NguoiDungController extends Controller
             $filename= date('YmdHi').$file->getClientOriginalName();
             $file-> move(public_path('public/Image'), $filename);
             $data['anh_dai_dien']= $filename;
-            
         }
-        
             $data['email']= $request->email;
             $data['sdt']= $request->sdt;
             $data['ten_dang_nhap']= $request->username;
@@ -156,19 +143,19 @@ class NguoiDungController extends Controller
             'ten_dang_nhap'=>$request->ten_dang_nhap,
             'password'=>$request->password,
             'quyen'=>"adm",
+            'trang_thai'=>1
         ];
         $nd=[
             'ten_dang_nhap'=>$request->ten_dang_nhap,
             'password'=>$request->password,
             'quyen'=>"user",
+            'trang_thai'=>1
         ];
         if(Auth::attempt($nd)){
             return redirect()->route('trang-chu');
         } 
         else
-            
-            if(Auth::attempt($admin)){
-                
+            if(Auth::attempt($admin)){              
                 return redirect()->route('dstaikhoan');
             }
         return redirect()->back()->with("error","Đăng nhập không thành công");
