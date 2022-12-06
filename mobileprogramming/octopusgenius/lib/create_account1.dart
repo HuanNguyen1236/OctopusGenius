@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:octopusgenius/create_account2.dart';
 import 'package:octopusgenius/home.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 class create_account1 extends StatefulWidget {
   @override
@@ -12,6 +13,7 @@ class create_account1 extends StatefulWidget {
 }
 
 class create_account1state extends State {
+  final contronler = TextEditingController();
   TextEditingController txtEmail = TextEditingController();
   TextEditingController txtPass = TextEditingController();
   final _auth = FirebaseAuth.instance;
@@ -109,27 +111,30 @@ class create_account1state extends State {
                           child: MaterialButton(
                             color: Color.fromARGB(255, 255, 255, 255),
                             onPressed: () async {
-                              try {
-                                final newUser =
-                                    _auth.createUserWithEmailAndPassword(
-                                        email: txtEmail.text,
-                                        password: txtPass.text);
-                                if (newUser != null) {
-                                  Navigator.pop(context, 'Đăng kí thành công!');
-                                } else {
-                                  final snackBar = SnackBar(
-                                    content: Text('Tài khoản này không hợp lệ'),
-                                  );
-                                  ScaffoldMessenger.of(context)
-                                      .showSnackBar(snackBar);
-                                }
-                              } catch (e) {
-                                final snackBar = SnackBar(
-                                  content: const Text('Có lỗi xảy ra!'),
-                                );
-                                ScaffoldMessenger.of(context)
-                                    .showSnackBar(snackBar);
-                              }
+                              final name = contronler.text;
+                              createUser(name: name);
+
+                              // try {
+                              //   final newUser =
+                              //       _auth.createUserWithEmailAndPassword(
+                              //           email: txtEmail.text,
+                              //           password: txtPass.text);
+                              //   if (newUser != null) {
+                              //     Navigator.pop(context, 'Đăng kí thành công!');
+                              //   } else {
+                              //     final snackBar = SnackBar(
+                              //       content: Text('Tài khoản này không hợp lệ'),
+                              //     );
+                              //     ScaffoldMessenger.of(context)
+                              //         .showSnackBar(snackBar);
+                              //   }
+                              // } catch (e) {
+                              //   final snackBar = SnackBar(
+                              //     content: const Text('Có lỗi xảy ra!'),
+                              //   );
+                              //   ScaffoldMessenger.of(context)
+                              //       .showSnackBar(snackBar);
+                              // }
                               // Navigator.push(
                               //   context,
                               //   MaterialPageRoute(
@@ -162,4 +167,13 @@ class create_account1state extends State {
       ),
     );
   }
+
+  Future createUser({required String name}) async {
+    final docUser = FirebaseFirestore.instance.colloction('user').doc('my-id');
+  }
+
+  final json = {
+    'name': name,
+    'password': password,
+  };
 }

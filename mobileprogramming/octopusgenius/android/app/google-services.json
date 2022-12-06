@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "608857692143",
-    "project_id": "octopus-genius",
-    "storage_bucket": "octopus-genius.appspot.com"
+    "project_number": "520044843799",
+    "project_id": "octopus-genius-aff7e",
+    "storage_bucket": "octopus-genius-aff7e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:608857692143:android:bba7c44de01ca0d9cbc81a",
+        "mobilesdk_app_id": "1:520044843799:android:57d0f61bda7f88663cdd52",
         "android_client_info": {
           "package_name": "com.example.octopusgenius"
         }
       },
       "oauth_client": [
         {
-          "client_id": "608857692143-sg8jji8hg91ra8io2gcvb7i868j7sjae.apps.googleusercontent.com",
+          "client_id": "520044843799-q0tu2b74ko8c08nqo3fv36gfbd214mv1.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB-LICYfa72w4LXTSR0XftUdgHZmJ3hI1M"
+          "current_key": "AIzaSyCRfHhIDy_tO2iIqpgxRloMCv6mjU1h74Q"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "608857692143-sg8jji8hg91ra8io2gcvb7i868j7sjae.apps.googleusercontent.com",
+              "client_id": "520044843799-q0tu2b74ko8c08nqo3fv36gfbd214mv1.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
