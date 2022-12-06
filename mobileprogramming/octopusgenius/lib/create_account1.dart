@@ -111,30 +111,30 @@ class create_account1state extends State {
                           child: MaterialButton(
                             color: Color.fromARGB(255, 255, 255, 255),
                             onPressed: () async {
-                              final name = contronler.text;
-                              createUser(name: name);
+                              // final name = contronler.text;
+                              // createUser(name: name);
 
-                              // try {
-                              //   final newUser =
-                              //       _auth.createUserWithEmailAndPassword(
-                              //           email: txtEmail.text,
-                              //           password: txtPass.text);
-                              //   if (newUser != null) {
-                              //     Navigator.pop(context, 'Đăng kí thành công!');
-                              //   } else {
-                              //     final snackBar = SnackBar(
-                              //       content: Text('Tài khoản này không hợp lệ'),
-                              //     );
-                              //     ScaffoldMessenger.of(context)
-                              //         .showSnackBar(snackBar);
-                              //   }
-                              // } catch (e) {
-                              //   final snackBar = SnackBar(
-                              //     content: const Text('Có lỗi xảy ra!'),
-                              //   );
-                              //   ScaffoldMessenger.of(context)
-                              //       .showSnackBar(snackBar);
-                              // }
+                              try {
+                                final newUser =
+                                    _auth.createUserWithEmailAndPassword(
+                                        email: txtEmail.text,
+                                        password: txtPass.text);
+                                if (newUser != null) {
+                                  Navigator.pop(context, 'Đăng kí thành công!');
+                                } else {
+                                  final snackBar = SnackBar(
+                                    content: Text('Tài khoản này không hợp lệ'),
+                                  );
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(snackBar);
+                                }
+                              } catch (e) {
+                                final snackBar = SnackBar(
+                                  content: const Text('Có lỗi xảy ra!'),
+                                );
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(snackBar);
+                              }
                               // Navigator.push(
                               //   context,
                               //   MaterialPageRoute(
@@ -168,12 +168,12 @@ class create_account1state extends State {
     );
   }
 
-  Future createUser({required String name}) async {
-    final docUser = FirebaseFirestore.instance.colloction('user').doc('my-id');
-  }
+  // Future createUser({required String name}) async {
+  //   final docUser = FirebaseFirestore.instance.colloction('user').doc('my-id');
+  // }
 
-  final json = {
-    'name': name,
-    'password': password,
-  };
+  // final json = {
+  //   'name': name,
+  //   'password': password,
+  // };
 }
